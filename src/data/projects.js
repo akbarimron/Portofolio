@@ -101,10 +101,10 @@ export const projects = [
       { href: 'https://youtu.be/wBXuy1aJWyw', label: 'Video Room404' },
     ],
     shots: [
-      { type: 'video', embed: 'https://www.youtube.com/embed/wBXuy1aJWyw', poster: 'https://i.ytimg.com/vi/wBXuy1aJWyw/hqdefault.jpg', title: 'Video Room404' },
       { image: 'room404', title: 'Lorong asrama' },
       { image: 'room404-3', title: 'Koridor dan lemari' },
       { image: 'room404-4', title: 'Pintu ke ruangan' },
+      { type: 'video', embed: 'https://www.youtube.com/embed/wBXuy1aJWyw', poster: 'https://i.ytimg.com/vi/wBXuy1aJWyw/hqdefault.jpg', title: 'Video Room404' },
     ],
   },
 ]

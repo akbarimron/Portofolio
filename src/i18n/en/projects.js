@@ -57,7 +57,7 @@ export const projects = {
       'Released free on itch.io.',
     ],
     links: [{ label: 'Play on itch.io' }, { label: 'Room404 video' }],
-    shots: [{ title: 'Room404 video' }, { title: 'Dormitory hallway' }, { title: 'Corridor and cabinet' }, { title: 'Door to a room' }],
+    shots: [{ title: 'Dormitory hallway' }, { title: 'Corridor and cabinet' }, { title: 'Door to a room' }, { title: 'Room404 video' }],
   },
 }
 
