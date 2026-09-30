@@ -1,8 +1,11 @@
 import { motion } from 'motion/react'
+import { useLang } from '../i18n/context'
 import { ease, dur } from '../lib/motion'
 
 // The whole row is one click target (invisible button on top) that opens the detail dialog.
 export default function ExperienceRow({ item, onOpen }) {
+  const { t } = useLang()
+
   return (
     <motion.li
       layout
@@ -19,12 +22,12 @@ export default function ExperienceRow({ item, onOpen }) {
       </div>
       <div className="md:col-span-5">
         <p className="leading-relaxed text-body">{item.text}</p>
-        <p className="mt-2 text-sm font-medium text-royal underline decoration-sky decoration-2 underline-offset-4">Lihat detail</p>
+        <p className="mt-2 text-sm font-medium text-royal underline decoration-sky decoration-2 underline-offset-4">{t('detail.view')}</p>
       </div>
       <button
         type="button"
         onClick={() => onOpen(item)}
-        aria-label={`Lihat detail ${item.title}`}
+        aria-label={t('detail.viewOf', { title: item.title })}
         className="absolute inset-0 z-10 cursor-pointer"
       />
     </motion.li>

@@ -13,7 +13,7 @@ npm run preview
 
 ## Mengubah isi
 
-Semua teks ada di `src/data/`, tidak perlu menyentuh komponen.
+Semua teks ada di `src/data/`, tidak perlu menyentuh komponen. Terjemahan Inggrisnya ada di `src/i18n/` (lihat bagian Bahasa).
 
 | File | Isi |
 | --- | --- |
@@ -25,8 +25,27 @@ Semua teks ada di `src/data/`, tidak perlu menyentuh komponen.
 | `details.js`, `proofs.js` | isi pop-up organisasi, asistensi, dan prestasi, serta gambar buktinya |
 | `creative.js` | empat kategori (Cinematic, 3D, Motion, Story Telling): `list` = daftar karya dari Portfolio, `works` = cuplikan di galeri pop-up |
 | `documents.js` | nama file CV dan Portfolio |
+| `nav.js` | daftar id section (label menu ada di `i18n/ui.*.js`) |
 
 Tautan sosial di `profile.js` dan `link` di `projects.js` yang kosong tidak ditampilkan. Tiap proyek punya `role`, `text` (ringkasan di kartu), `highlights`, dan `stackGroups` (teknologi per kelompok) yang tampil di pop-up, serta `links`. Proyek bisa punya `shots` (gambar atau video YouTube) yang tampil di pop-up saat gambar kartu diklik; tanpa `shots` hanya gambar sampulnya. Proyek dengan `hidden: true` (sekarang: raket bulu tangkis IMU) disimpan tetapi tidak ditampilkan; hapus barisnya untuk menampilkannya lagi.
+
+## Bahasa (Indonesia dan Inggris)
+
+Tombol **ID | EN** di navbar mengganti seluruh situs. Pilihannya diingat di browser pengunjung. Alamat `?lang=en` (atau `?lang=id`) membuka bahasa tertentu, berguna untuk tautan di CV atau LinkedIn. Tanpa pilihan, situs tampil dalam bahasa Indonesia.
+
+Semua ada di `src/i18n/`:
+
+| File | Isi |
+| --- | --- |
+| `ui.id.js`, `ui.en.js` | teks antarmuka (tombol, judul section, label, pesan galat). Kunci harus sama di keduanya |
+| `en/*.js` | terjemahan Inggris untuk isi di `src/data/`, dipisah per topik |
+| `content.js` | menggabungkan data Indonesia dengan terjemahannya |
+
+Data Indonesia di `src/data/` tetap jadi sumber utama. Terjemahan hanya menimpa kolom teksnya, sedangkan gambar, URL, dan `id` tetap dari data asli. Karena itu **urutan dan jumlah butir harus sama** (mis. `highlights`, `shots`, `items` di `en/`). Jika Anda mengubah teks Indonesia, ubah juga padanannya di `en/`.
+
+Kolom yang *kunci*-nya ikut diterjemahkan (`stackGroups`, `facts`) ditulis dengan `R({...})` supaya menggantikan seluruhnya. Untuk menambah teks UI baru: tambahkan kunci di kedua file `ui.*.js`, lalu pakai `const { t } = useLang()` dan `t('kunci')`.
+
+PDF CV dan Portfolio tetap berbahasa Indonesia; teks di bagian dokumen versi Inggris mengatakannya.
 
 ## CV dan Portfolio
 

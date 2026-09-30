@@ -76,7 +76,10 @@ export const projects = [
       { href: 'https://youtu.be/08Av0wQqgjQ', label: 'Video demo' },
     ],
     shots: [
-      { image: 'studyduel', title: 'Tampilan layar aplikasi' },
+      { image: 'studyduel-ui-masuk', title: 'Desain UI: masuk dan daftar' },
+      { image: 'studyduel-ui-beranda', title: 'Desain UI: beranda, toko, dan gacha' },
+      { image: 'studyduel-ui-duel', title: 'Desain UI: mode duel' },
+      { image: 'studyduel-ui-profil', title: 'Desain UI: teman, profil, dan badge' },
       { type: 'video', embed: 'https://www.youtube.com/embed/08Av0wQqgjQ', poster: 'https://i.ytimg.com/vi/08Av0wQqgjQ/hqdefault.jpg', title: 'Video demo (LIDM 2026, Inovasi Teknologi Digital Pendidikan)' },
     ],
   },
@@ -92,10 +95,14 @@ export const projects = [
       'Dirilis gratis di itch.io.',
     ],
     stackGroups: { Game: ['Unity', 'C#'] },
-    image: 'room404', links: [{ href: 'https://hibareit.itch.io/room404', label: 'Main di itch.io' }],
+    image: 'room404',
+    links: [
+      { href: 'https://hibareit.itch.io/room404', label: 'Main di itch.io' },
+      { href: 'https://youtu.be/wBXuy1aJWyw', label: 'Video Room404' },
+    ],
     shots: [
+      { type: 'video', embed: 'https://www.youtube.com/embed/wBXuy1aJWyw', poster: 'https://i.ytimg.com/vi/wBXuy1aJWyw/hqdefault.jpg', title: 'Video Room404' },
       { image: 'room404', title: 'Lorong asrama' },
-      { image: 'room404-2', title: 'Sosok di kegelapan' },
       { image: 'room404-3', title: 'Koridor dan lemari' },
       { image: 'room404-4', title: 'Pintu ke ruangan' },
     ],

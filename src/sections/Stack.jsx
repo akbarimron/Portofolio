@@ -1,15 +1,17 @@
 import SectionHeading from '../components/ui/SectionHeading'
 import Reveal from '../components/ui/Reveal'
-import { stack } from '../data/stack'
+import { useLang } from '../i18n/context'
 import { at } from '../lib/motion'
 
 // Plain definition lists on purpose: a skills section is a lookup table.
 // Bold entries are the tools used most in the projects above.
 export default function Stack() {
+  const { t, c: { stack } } = useLang()
+
   return (
     <section id="stack" className="border-t border-mist py-24">
       <div className="wrap">
-        <SectionHeading title="Kompetensi & Teknologi" />
+        <SectionHeading title={t('stack.title')} />
         <div className="mt-14 space-y-16">
           {stack.map((c) => (
             <div key={c.cluster} className="grid gap-6 lg:grid-cols-12">

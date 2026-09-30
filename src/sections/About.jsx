@@ -4,23 +4,21 @@ import SectionHeading from '../components/ui/SectionHeading'
 import SafeImage from '../components/ui/SafeImage'
 import Reveal from '../components/ui/Reveal'
 import CountUp from '../components/ui/CountUp'
-import { profile, philosophy } from '../data/profile'
+import { useLang } from '../i18n/context'
 import { images } from '../data/images'
-import { awards } from '../data/awards'
-import { visibleProjects as projects } from '../data/projects'
-import { experience } from '../data/experience'
 import { at } from '../lib/motion'
 
-// Every number is derived from the data files, or quoted from the text of an
-// entry ("Membimbing 70+ mahasiswa" in experience.js), so it can't drift.
-const metrics = [
-  { value: awards.length + 1 /* + beasiswa GenBI */, label: 'Penghargaan, hibah, dan beasiswa' },
-  { value: projects.length, label: 'Proyek' },
-  { value: experience.length, label: 'Peran organisasi dan asistensi' },
-  { value: 70, suffix: '+', label: 'Mahasiswa dibimbing di praktikum' },
-]
-
 export default function About() {
+  const { t, c: { profile, philosophy, awards, projects, experience, creative } } = useLang()
+  // Every number is derived from the data files, so it can't drift. The creative
+  // total counts every work in data/creative.js; "+" because Cinematic and Motion
+  // are marked `more` (the card count shows the same sign).
+  const metrics = [
+    { value: awards.length + 1 /* + the GenBI scholarship */, label: t('about.m.awards') },
+    { value: projects.length, label: t('about.m.projects') },
+    { value: experience.length, label: t('about.m.roles') },
+    { value: creative.reduce((n, c) => n + c.items.length, 0), suffix: creative.some((c) => c.more) ? '+' : undefined, label: t('about.m.creative') },
+  ]
   const figRef = useRef(null)
   const reduce = useReducedMotion()
 
@@ -39,7 +37,7 @@ export default function About() {
             <motion.div style={reduce ? undefined : { scale: zoom }}>
               <SafeImage
                 src={images.portrait}
-                alt={`Potret ${profile.first} ${profile.last}`}
+                alt={t('about.portrait', { name: `${profile.first} ${profile.last}` })}
                 className="aspect-[3/4] rounded-3xl"
                 imgClassName="object-[50%_30%]"
               />

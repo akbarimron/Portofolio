@@ -2,12 +2,14 @@ import { useState } from 'react'
 import Modal from './ui/Modal'
 import Gallery from './ui/Gallery'
 import { ExternalIcon } from './ui/Icons'
+import { useLang } from '../i18n/context'
 
 const linkCls = 'inline-flex min-h-11 items-center gap-1 rounded-lg px-3 text-sm font-medium text-royal hover:bg-ice'
 
 // Preview of one project: media on the left; role, description, highlights and
 // technology on the right. Arrow keys step through the media.
 export default function ProjectDialog({ project: p, onClose }) {
+  const { t } = useLang()
   const [index, setIndex] = useState(0)
   const works = p.shots ?? [{ type: 'image', image: p.image, title: p.title }]
   const links = p.links ?? []
@@ -32,23 +34,23 @@ export default function ProjectDialog({ project: p, onClose }) {
       ))}
     >
       <div className="overflow-y-auto p-5 md:p-6">
-        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
-          <Gallery works={works} index={index} onSelect={setIndex} />
-          <div>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+          <Gallery works={works} index={index} onSelect={setIndex} zoomable />
+          <div className="min-w-0">
             <p className="leading-relaxed text-body">{p.text}</p>
 
             {p.highlights && (
               <>
-                <h4 className="mt-6 text-sm font-medium text-royal">Yang dikerjakan</h4>
+                <h4 className="mt-6 text-sm font-medium text-royal">{t('project.did')}</h4>
                 <ul className="mt-2 divide-y divide-mist border-y border-mist">
                   {p.highlights.map((h) => <li key={h} className="py-2.5 leading-snug text-ink">{h}</li>)}
                 </ul>
               </>
             )}
 
-            <h4 className="mt-6 text-sm font-medium text-royal">Teknologi</h4>
+            <h4 className="mt-6 text-sm font-medium text-royal">{t('project.tech')}</h4>
             <dl className="mt-2 space-y-3">
-              {Object.entries(p.stackGroups ?? { Teknologi: p.stack ?? [] }).map(([group, items]) => (
+              {Object.entries(p.stackGroups ?? { [t('project.tech')]: p.stack ?? [] }).map(([group, items]) => (
                 <div key={group}>
                   <dt className="text-xs text-body">{group}</dt>
                   <dd>

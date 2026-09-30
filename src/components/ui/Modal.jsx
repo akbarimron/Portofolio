@@ -2,11 +2,13 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'motion/react'
 import { CloseIcon } from './Icons'
 import { ease, dur } from '../../lib/motion'
+import { useLang } from '../../i18n/context'
 
 // Native <dialog>: focus is trapped, Esc closes, and the page behind becomes
 // inert without extra code. `actions` sit next to the close button.
 export default function Modal({ title, subtitle, actions, onClose, onKeyDown, wide = false, children }) {
   const ref = useRef(null)
+  const { t } = useLang()
 
   useEffect(() => {
     const d = ref.current
@@ -45,7 +47,7 @@ export default function Modal({ title, subtitle, actions, onClose, onKeyDown, wi
               type="button"
               autoFocus
               onClick={() => ref.current.close()}
-              aria-label="Tutup"
+              aria-label={t('close')}
               className="grid size-11 place-items-center rounded-lg hover:bg-ice"
             >
               <CloseIcon />

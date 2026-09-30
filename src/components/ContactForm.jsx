@@ -1,20 +1,21 @@
 import { useState } from 'react'
 import { profile } from '../data/profile'
+import { useLang } from '../i18n/context'
 
 const CATEGORIES = ['Web & Software', 'Motion & Video', '3D']
 const field =
   'w-full rounded-lg border border-mist bg-white px-4 py-3 text-base text-ink-deep placeholder:text-hint focus-visible:border-royal'
 
+// returns i18n keys, not text, so an error already on screen follows a language switch
 function validate({ name, email, message }) {
   const e = {}
-  if (!name.trim()) e.name = 'Isi nama Anda.'
-  if (!/^\S+@\S+\.\S+$/.test(email)) e.email = 'Masukkan alamat email yang valid.'
-  if (message.trim().length < 10) e.message = 'Tulis minimal 10 karakter.'
+  if (!name.trim()) e.name = 'form.errName'
+  if (!/^\S+@\S+\.\S+$/.test(email)) e.email = 'form.errEmail'
+  if (message.trim().length < 10) e.message = 'form.errMessage'
   return e
 }
 
-const compose = ({ name, email, message }, category) => {
-  const subject = `[${category}] Pesan dari ${name}`
+const compose = ({ name, email, message }, category, subject) => {
   const body = `${message}\n\n${name}\n${email}`
   const q = (s) => encodeURIComponent(s)
   return {
@@ -27,6 +28,7 @@ const compose = ({ name, email, message }, category) => {
 // profile.email with subject and body filled in. The visitor only presses
 // Send in their own account. A mailto: link covers people without Gmail.
 export default function ContactForm() {
+  const { t } = useLang()
   const [v, setV] = useState({ name: '', email: '', message: '' })
   const [category, setCategory] = useState(CATEGORIES[0])
   const [errors, setErrors] = useState({})
@@ -40,7 +42,7 @@ export default function ContactForm() {
     setErrors(found)
     setLinks(null)
     if (Object.keys(found).length) return
-    const urls = compose(v, category)
+    const urls = compose(v, category, t('form.subject', { category, name: v.name }))
     setLinks(urls)
     // Don't pass 'noopener' here: it makes window.open() return null even when the
     // tab opened, and we'd wrongly navigate this page away too. Cut the link by hand.
@@ -50,26 +52,26 @@ export default function ContactForm() {
   }
 
   const Err = ({ id }) =>
-    errors[id] ? <p id={`${id}-err`} className="mt-1 text-sm text-error-text">{errors[id]}</p> : null
+    errors[id] ? <p id={`${id}-err`} className="mt-1 text-sm text-error-text">{t(errors[id])}</p> : null
   const aria = (id) => ({ 'aria-invalid': !!errors[id], 'aria-describedby': errors[id] ? `${id}-err` : undefined })
 
   return (
     <form onSubmit={submit} noValidate className="space-y-5 rounded-2xl bg-canvas p-6 text-ink-deep md:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium">Nama</label>
-          <input id="name" value={v.name} onChange={set('name')} autoComplete="name" placeholder="Nama Anda" className={field} {...aria('name')} />
+          <label htmlFor="name" className="mb-1.5 block text-sm font-medium">{t('form.name')}</label>
+          <input id="name" value={v.name} onChange={set('name')} autoComplete="name" placeholder={t('form.namePh')} className={field} {...aria('name')} />
           <Err id="name" />
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium">Email Anda</label>
-          <input id="email" type="email" value={v.email} onChange={set('email')} autoComplete="email" placeholder="email@contoh.com" className={field} {...aria('email')} />
+          <label htmlFor="email" className="mb-1.5 block text-sm font-medium">{t('form.email')}</label>
+          <input id="email" type="email" value={v.email} onChange={set('email')} autoComplete="email" placeholder={t('form.emailPh')} className={field} {...aria('email')} />
           <Err id="email" />
         </div>
       </div>
 
-      <div role="radiogroup" aria-label="Kategori pesan">
-        <p className="mb-1.5 text-sm font-medium">Topik</p>
+      <div role="radiogroup" aria-label={t('form.topics')}>
+        <p className="mb-1.5 text-sm font-medium">{t('form.topic')}</p>
         <div className="grid grid-cols-3 gap-2">
           {CATEGORIES.map((c) => (
             <button
@@ -87,22 +89,22 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium">Pesan</label>
-        <textarea id="message" rows={4} value={v.message} onChange={set('message')} placeholder="Tulis tujuan kolaborasi, kebutuhan, atau jadwal." className={`${field} resize-none`} {...aria('message')} />
+        <label htmlFor="message" className="mb-1.5 block text-sm font-medium">{t('form.message')}</label>
+        <textarea id="message" rows={4} value={v.message} onChange={set('message')} placeholder={t('form.messagePh')} className={`${field} resize-none`} {...aria('message')} />
         <Err id="message" />
       </div>
 
       <button type="submit" className="min-h-12 w-full rounded-full bg-ink font-medium text-canvas transition-colors hover:bg-royal">
-        Buka di Gmail, tinggal kirim
+        {t('form.submit')}
       </button>
       <p aria-live="polite" className="text-sm leading-relaxed text-body">
         {links ? (
           <>
-            Gmail terbuka di tab baru, sudah tertuju ke {profile.email}. Tekan Kirim di sana.{' '}
-            <a href={links.mailto} className="font-medium text-royal underline underline-offset-4">Tidak memakai Gmail? Buka aplikasi email lain.</a>
+            {t('form.sent', { to: profile.email })}{' '}
+            <a href={links.mailto} className="font-medium text-royal underline underline-offset-4">{t('form.mailto')}</a>
           </>
         ) : (
-          `Pesan dikirim dari akun email Anda sendiri ke ${profile.email}.`
+          t('form.hint', { to: profile.email })
         )}
       </p>
     </form>

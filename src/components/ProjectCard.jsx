@@ -3,6 +3,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import SafeImage from './ui/SafeImage'
 import { ExternalIcon } from './ui/Icons'
 import useMedia from '../hooks/useMedia'
+import { useLang } from '../i18n/context'
 import { images } from '../data/images'
 import { techOf } from '../data/projects'
 
@@ -10,6 +11,7 @@ import { techOf } from '../data/projects'
 // The pinned card eases back in scale so the stack reads as depth.
 // Clicking the picture (or Enter on it) opens the preview dialog with more images.
 export default function ProjectCard({ project: p, index, total, onOpen }) {
+  const { t } = useLang()
   const wrapRef = useRef(null)
   const desktop = useMedia('(min-width: 768px)')
   const reduce = useReducedMotion()
@@ -31,18 +33,18 @@ export default function ProjectCard({ project: p, index, total, onOpen }) {
           <div className={`relative aspect-[16/10] md:col-span-7 md:aspect-auto md:min-h-[26rem] ${flip ? 'md:order-2' : ''}`}>
             <SafeImage
               src={images[p.image]}
-              alt={`Tampilan proyek ${p.title}`}
+              alt={t('project.alt', { title: p.title })}
               className="absolute inset-0"
               imgClassName={`transition-transform duration-700 ease-emph group-hover:scale-[1.03] ${p.fit === 'contain' ? 'object-contain' : ''}`}
             />
             <button
               type="button"
               onClick={() => onOpen(p)}
-              aria-label={`Buka pratinjau ${p.title}, ${count} gambar`}
+              aria-label={t('project.open', { title: p.title, n: count })}
               className="absolute inset-0 z-10 cursor-zoom-in"
             />
             <span className="pointer-events-none absolute bottom-3 left-3 z-20 rounded-md bg-white/95 px-2.5 py-1 text-sm font-medium text-ink">
-              {count > 1 ? `Lihat ${count} ${onlyPhotos ? 'foto' : 'media'}` : 'Lihat foto'}
+              {count > 1 ? t(onlyPhotos ? 'project.viewPhotos' : 'project.viewMedia', { n: count }) : t('project.viewOne')}
             </span>
           </div>
           <div className="flex flex-col justify-between gap-8 p-6 md:col-span-5 md:p-10">

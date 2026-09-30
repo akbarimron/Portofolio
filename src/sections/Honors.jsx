@@ -2,33 +2,35 @@ import { useState } from 'react'
 import SectionHeading from '../components/ui/SectionHeading'
 import Reveal from '../components/ui/Reveal'
 import DetailDialog from '../components/DetailDialog'
-import { awards, featuredAward } from '../data/awards'
-import { awardDetail } from '../data/details'
+import { useLang } from '../i18n/context'
 import { at } from '../lib/motion'
 
 // Invisible button over the whole card/row: click (or Enter) opens the detail dialog.
-const Open = ({ item, onOpen }) => (
-  <button
-    type="button"
-    onClick={() => onOpen(item)}
-    aria-label={`Lihat detail ${item.title}`}
-    className="absolute inset-0 z-10 cursor-pointer rounded-2xl"
-  />
-)
+const Open = ({ item, onOpen }) => {
+  const { t } = useLang()
+  return (
+    <button
+      type="button"
+      onClick={() => onOpen(item)}
+      aria-label={t('detail.viewOf', { title: item.title })}
+      className="absolute inset-0 z-10 cursor-pointer rounded-2xl"
+    />
+  )
+}
 
 // Sticky heading on the left, list on the right: the only section with this
 // composition, so it reads as a ledger of records rather than another card grid.
 export default function Honors() {
+  const { t, c: { awards, featuredAward: f, awardDetail } } = useLang()
   const [open, setOpen] = useState(null)
-  const f = featuredAward
 
   return (
     <section id="honors" className="border-t border-mist bg-ice/50 py-28">
       <div className="wrap grid gap-12 lg:grid-cols-12">
         <div className="self-start lg:sticky lg:top-28 lg:col-span-4">
-          <SectionHeading title="Prestasi & Penghargaan" />
+          <SectionHeading title={t('honors.title')} />
           <Reveal delay={0.1} className="mt-6 max-w-sm text-lg leading-relaxed text-body">
-            Beasiswa, hibah, dan kompetisi tingkat nasional yang saya ikuti bersama tim. Klik satu untuk melihat detailnya.
+            {t('honors.intro')}
           </Reveal>
         </div>
 
@@ -38,7 +40,7 @@ export default function Honors() {
             <h3 className="mt-3 text-2xl font-semibold leading-snug md:text-3xl">{f.title}</h3>
             <p className="mt-2 text-mist">{f.sub}</p>
             <p className="mt-5 max-w-2xl leading-relaxed text-mist">{f.text}</p>
-            <p className="mt-5 text-sm font-medium underline decoration-sky decoration-2 underline-offset-4">Lihat detail</p>
+            <p className="mt-5 text-sm font-medium underline decoration-sky decoration-2 underline-offset-4">{t('detail.view')}</p>
             <Open item={f} onOpen={setOpen} />
           </Reveal>
 
@@ -51,7 +53,7 @@ export default function Honors() {
                   <h3 className="mt-1 text-xl font-semibold text-ink">{a.title}</h3>
                   <p className="mt-1 text-sm font-medium text-royal">{a.sub}</p>
                   <p className="mt-3 leading-relaxed text-body">{a.text}</p>
-                  <p className="mt-2 text-sm font-medium text-royal underline decoration-sky decoration-2 underline-offset-4">Lihat detail</p>
+                  <p className="mt-2 text-sm font-medium text-royal underline decoration-sky decoration-2 underline-offset-4">{t('detail.view')}</p>
                 </div>
                 <Open item={a} onOpen={setOpen} />
               </Reveal>

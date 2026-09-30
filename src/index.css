@@ -31,6 +31,14 @@
   to { transform: translateX(-50%); }
 }
 
+/* Sampul panel kreatif berganti: gambar baru menggeser masuk dari kanan. Hanya transform, supaya
+   dikerjakan GPU dan tidak patah-patah (clip-path dan scale besar memicu repaint tiap frame). */
+@keyframes cover-in {
+  from { transform: translate3d(100%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+.cover-in { animation: cover-in 0.9s var(--ease-emph) both; will-change: transform; }
+
 @layer base {
   html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
   body {

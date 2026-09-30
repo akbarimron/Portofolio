@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { CheckIcon, CopyIcon, ExternalIcon } from './ui/Icons'
 import { profile } from '../data/profile'
+import { useLang } from '../i18n/context'
 
 export default function CopyEmail() {
+  const { t } = useLang()
   const [state, setState] = useState('idle') // idle | copied | failed
 
   useEffect(() => {
@@ -32,10 +34,10 @@ export default function CopyEmail() {
           className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-canvas/30 px-4 text-sm font-medium transition-colors hover:bg-canvas/10"
         >
           {state === 'copied' ? <CheckIcon /> : <CopyIcon />}
-          {state === 'copied' ? 'Tersalin' : 'Salin'}
+          {state === 'copied' ? t('copy.copied') : t('copy.copy')}
         </button>
         <span aria-live="polite" className="text-sm text-mist">
-          {state === 'failed' && 'Gagal menyalin. Salin manual dari tautan.'}
+          {state === 'failed' && t('copy.failed')}
         </span>
       </div>
       <a
@@ -44,7 +46,7 @@ export default function CopyEmail() {
         rel="noreferrer"
         className="inline-flex min-h-11 items-center gap-2 text-lg font-medium hover:text-mist"
       >
-        Instagram @{profile.instagram} <ExternalIcon />
+        {t('copy.instagram', { user: profile.instagram })} <ExternalIcon />
       </a>
     </div>
   )

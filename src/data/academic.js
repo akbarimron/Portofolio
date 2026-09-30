@@ -4,11 +4,7 @@ export const academic = {
     name: 'Universitas Pendidikan Indonesia',
     detail: 'FPMIPA, Program Studi Pendidikan Ilmu Komputer',
     period: 'Angkatan 2024, masih berjalan',
-  },
-  school: {
-    label: 'Sekolah',
-    name: 'SMA Labschool UPI Bandung',
-    detail: 'Pendidikan menengah atas',
+    gpa: 'IPK 3,96',
   },
   focus: [
     { title: 'Computational Thinking', text: 'Memecah masalah rumit menjadi langkah yang bisa diajarkan.' },

@@ -1,14 +1,15 @@
 // Setiap id harus punya section dengan id yang sama di halaman.
+// Label tampil diambil dari i18n/ui.*.js dengan kunci `nav.<id>`.
 export const nav = [
-  { id: 'about', label: 'About' },
-  { id: 'academic', label: 'Academic' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'honors', label: 'Honors' },
-  { id: 'research', label: 'Research' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'creative', label: 'Creative' },
-  { id: 'stack', label: 'Stack' },
-  { id: 'documents', label: 'CV' },
+  { id: 'about' },
+  { id: 'academic' },
+  { id: 'experience' },
+  { id: 'honors' },
+  { id: 'research' },
+  { id: 'projects' },
+  { id: 'creative' },
+  { id: 'stack' },
+  { id: 'documents' },
 ]
 
 export const sectionIds = [...nav.map((n) => n.id), 'contact']

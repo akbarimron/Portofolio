@@ -3,11 +3,11 @@ import { AnimatePresence, motion } from 'motion/react'
 import SectionHeading from '../components/ui/SectionHeading'
 import ExperienceRow from '../components/ExperienceRow'
 import DetailDialog from '../components/DetailDialog'
-import { experienceDetail } from '../data/details'
-import { experience, filters } from '../data/experience'
+import { useLang } from '../i18n/context'
 import { ease, dur } from '../lib/motion'
 
 export default function Experience() {
+  const { t, c: { experience, filters, experienceDetail } } = useLang()
   const [filter, setFilter] = useState('all')
   const [open, setOpen] = useState(null)
   const items = experience.filter((e) => filter === 'all' || e.group === filter)
@@ -16,8 +16,8 @@ export default function Experience() {
     <section id="experience" className="py-32">
       <div className="wrap">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <SectionHeading title="Organisasi & Asistensi" />
-          <div role="group" aria-label="Saring peran" className="flex gap-1 self-start rounded-xl border border-mist bg-ice p-1">
+          <SectionHeading title={t('experience.title')} />
+          <div role="group" aria-label={t('experience.filter')} className="flex gap-1 self-start rounded-xl border border-mist bg-ice p-1">
             {filters.map((f) => (
               <button
                 key={f.id}
@@ -39,10 +39,10 @@ export default function Experience() {
           </div>
         </div>
 
-        <p aria-live="polite" className="sr-only">{items.length} peran ditampilkan</p>
+        <p aria-live="polite" className="sr-only">{t('experience.count', { n: items.length })}</p>
 
         {items.length === 0 ? (
-          <p className="mt-12 text-body">Belum ada peran di kategori ini.</p>
+          <p className="mt-12 text-body">{t('experience.empty')}</p>
         ) : (
           <ul className="mt-12 border-t border-mist">
             <AnimatePresence initial={false} mode="popLayout">

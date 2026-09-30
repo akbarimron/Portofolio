@@ -1,3 +1,4 @@
+import { useLang } from './i18n/context'
 import ScrollProgress from './components/ui/ScrollProgress'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
@@ -13,13 +14,15 @@ import Documents from './sections/Documents'
 import Contact from './sections/Contact'
 
 export default function App() {
+  const { t } = useLang()
+
   return (
     <>
       <a
         href="#about"
         className="fixed left-3 top-3 z-[70] -translate-y-20 rounded-lg bg-ink px-4 py-3 text-canvas focus-visible:translate-y-0"
       >
-        Lewati ke konten
+        {t('skip')}
       </a>
       <ScrollProgress />
       <Navbar />

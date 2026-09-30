@@ -3,17 +3,24 @@ import Modal from './ui/Modal'
 import SafeImage from './ui/SafeImage'
 import { ExternalIcon } from './ui/Icons'
 import { images } from '../data/images'
-import { documents } from '../data/documents'
+import { useLang } from '../i18n/context'
 import { thumbOf } from '../data/covers'
 import { toEmbed } from '../lib/embed'
 
-const portfolio = documents.find((d) => d.id === 'portfolio')
+const PORTFOLIO_PDF = '/docs/Portfolio-Muhamad-Akbar-Imron.pdf'
+// portrait pictures (posters, character sheets) get a tall frame instead of 16:9
+const TALL = 'h-[70vh] max-h-[720px] min-h-[420px]'
+const frameOf = (item, tb) => {
+  const f = tb?.frame ?? (item.tall ? 'tall' : '')
+  return f === 'tall' ? TALL : f === 'wide' ? 'aspect-[4/1]' : 'aspect-video'
+}
 const count = (c) => `${c.items.length}${c.more ? '+' : ''}`
 
 // The stage for one work: its embed if it has a link, its picture if it is a design
 // asset, otherwise its thumbnail with an honest note. Only the selected work is rendered, so a video starts
 // only when the visitor picks it.
 function Stage({ item, thumb }) {
+  const { t } = useLang()
   const embed = toEmbed(item.url)
 
   if (embed?.kind === 'tall') {
@@ -44,22 +51,87 @@ function Stage({ item, thumb }) {
   }
   if (item.image && !item.url) {
     // a design asset: the picture is the work itself
-    return <SafeImage src={images[item.image]} alt={item.title} className="aspect-video w-full rounded-xl bg-ice" imgClassName="object-contain" />
+    return <SafeImage src={images[item.image]} alt={item.title} className={`${frameOf(item)} w-full rounded-xl bg-ice`} imgClassName="object-contain" />
   }
   return (
     <div className="relative">
-      <SafeImage src={images[thumb]} alt={`Cuplikan ${item.title}`} className="aspect-video w-full rounded-xl bg-ink-deep" imgClassName="object-contain" />
+      <SafeImage src={images[thumb]} alt={t('creative.panelAlt', { title: item.title })} className="aspect-video w-full rounded-xl bg-ink-deep" imgClassName="object-contain" />
       <p className="absolute inset-x-3 bottom-3 rounded-lg bg-ink-deep/85 px-3 py-2 text-sm text-canvas">
-        {item.url
-          ? 'Tautan ini belum bisa disematkan. Buka lewat tombol "Buka sumber" di bawah.'
-          : 'Video karya ini belum ditambahkan. Gambar ini hanya cuplikan.'}
+        {item.url ? t('creative.noEmbed') : t('creative.pending')}
       </p>
+    </div>
+  )
+}
+
+// A work with preview renders: the large view swaps between the video and each image in place.
+// Keyed by the selected work, so switching works always starts on the video.
+function Showcase({ item, thumb }) {
+  const { t } = useLang()
+  const previews = item.previews ?? []
+  const [pv, setPv] = useState(-1)
+  const [tab, setTab] = useState(0)
+  if (item.tabs?.length) {
+    // one work, several pictures: a strip of previews swaps the large view in place
+    return (
+      <div>
+        <SafeImage key={tab} src={images[item.tabs[tab].image]} alt={`${item.title}, ${item.tabs[tab].label}`} className={`${frameOf(item, item.tabs[tab])} w-full rounded-xl bg-ice`} imgClassName="object-contain" />
+        <a href={images[item.tabs[tab].image]} target="_blank" rel="noreferrer" className="mt-1 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-royal hover:text-ink">
+          {t('gallery.full')} <ExternalIcon />
+        </a>
+        <ul className="mt-3 flex gap-2 overflow-x-auto pb-1" aria-label={t('creative.imageTabs')}>
+          {item.tabs.map((tb, i) => (
+            <li key={tb.image} className="shrink-0">
+              <button
+                type="button"
+                aria-current={tab === i}
+                aria-label={tb.label}
+                title={tb.label}
+                onClick={() => setTab(i)}
+                className={`block h-16 w-28 overflow-hidden rounded-lg border-2 ${tab === i ? 'border-royal' : 'border-transparent'}`}
+              >
+                <SafeImage src={images[tb.image]} alt="" className="h-full w-full bg-ice" imgClassName="object-contain" />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+  if (!previews.length) return <Stage item={item} thumb={thumb} />
+  const poster = toEmbed(item.url)?.poster ?? images[thumb]
+  const btn = (active) => `block h-16 w-28 overflow-hidden rounded-lg border-2 ${active ? 'border-royal' : 'border-transparent'}`
+
+  return (
+    <div>
+      {pv < 0 ? (
+        <Stage item={item} thumb={thumb} />
+      ) : (
+        <SafeImage key={pv} src={images[previews[pv]]} alt={t('creative.previewOpen', { title: item.title, n: pv + 1 })} className="aspect-video w-full rounded-xl bg-ink-deep" imgClassName="object-contain" />
+      )}
+      <ul className="mt-3 flex gap-2 overflow-x-auto pb-1" aria-label={t('creative.previews')}>
+        <li className="shrink-0">
+          <button type="button" aria-current={pv < 0} aria-label={t('gallery.video')} onClick={() => setPv(-1)} className={btn(pv < 0)}>
+            <span className="relative block h-full w-full">
+              <SafeImage src={poster} alt="" className="h-full w-full" />
+              <span className="absolute inset-0 grid place-items-center bg-ink-deep/40 text-xs font-medium text-canvas">{t('gallery.video')}</span>
+            </span>
+          </button>
+        </li>
+        {previews.map((key, i) => (
+          <li key={key} className="shrink-0">
+            <button type="button" aria-current={pv === i} aria-label={t('creative.previewOpen', { title: item.title, n: i + 1 })} onClick={() => setPv(i)} className={btn(pv === i)}>
+              <SafeImage src={images[key]} alt="" className="h-full w-full" />
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
 
 // Creative gallery: pick a category with the tabs, then pick a work from the list.
 export default function CreativeDialog({ categories, initialId, onClose }) {
+  const { t } = useLang()
   const [catId, setCatId] = useState(initialId)
   const [index, setIndex] = useState(0)
   const cat = categories.find((c) => c.id === catId)
@@ -76,23 +148,23 @@ export default function CreativeDialog({ categories, initialId, onClose }) {
   return (
     <Modal
       wide
-      title="Karya Kreatif"
-      subtitle={`${cat.title}, ${count(cat)} karya di portfolio`}
+      title={t('creative.title')}
+      subtitle={`${cat.title}, ${t('creative.count', { n: count(cat) })}`}
       onClose={onClose}
       onKeyDown={onKeyDown}
       actions={
         <a
-          href={`${portfolio.file}#page=3`}
+          href={`${PORTFOLIO_PDF}#page=3`}
           target="_blank"
           rel="noreferrer"
           className="inline-flex min-h-11 items-center gap-1 rounded-lg px-3 text-sm font-medium text-royal hover:bg-ice"
         >
-          Buka Portfolio <ExternalIcon />
+          {t('creative.portfolio')} <ExternalIcon />
         </a>
       }
     >
       <div className="overflow-y-auto p-5 md:p-6">
-        <div role="tablist" aria-label="Kategori karya" className="mb-6 flex flex-wrap gap-2">
+        <div role="tablist" aria-label={t('creative.tabs')} className="mb-6 flex flex-wrap gap-2">
           {categories.map((c) => (
             <button
               key={c.id}
@@ -107,20 +179,23 @@ export default function CreativeDialog({ categories, initialId, onClose }) {
           ))}
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
-          <div>
-            <Stage key={`${catId}-${index}`} item={item} thumb={thumb} />
-            <p className="mt-3 font-medium text-ink">{item.title}</p>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+          <div className="min-w-0">
+            <Showcase key={`${catId}-${index}`} item={item} thumb={thumb} />
+            <p className="mt-3 flex flex-wrap items-center gap-2 font-medium text-ink">
+              {item.title}
+              {item.highlight && <span className="rounded-full bg-royal/10 px-2 py-0.5 text-xs font-medium text-royal">{t('creative.highlight')}</span>}
+            </p>
             {item.url && (
               <a href={item.url} target="_blank" rel="noreferrer" className="mt-1 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-royal hover:text-ink">
-                Buka sumber <ExternalIcon />
+                {t('creative.source')} <ExternalIcon />
               </a>
             )}
             <p className="mt-2 max-w-xl leading-relaxed text-body">{cat.text}</p>
           </div>
 
-          <div>
-            <h4 className="text-sm font-medium text-royal">Daftar karya, klik untuk melihat</h4>
+          <div className="min-w-0">
+            <h4 className="text-sm font-medium text-royal">{t('creative.list')}</h4>
             <ol className="mt-2 divide-y divide-mist border-y border-mist">
               {cat.items.map((it, i) => (
                 <li key={it.title}>
@@ -137,12 +212,13 @@ export default function CreativeDialog({ categories, initialId, onClose }) {
                     />
                     <span className="min-w-0 flex-1">
                       <span className="block text-ink">{i + 1}. {it.title}</span>
-                      <span className="block text-xs text-body">{it.image ? 'Gambar' : it.url ? 'Video tersedia' : 'Belum ada video'}</span>
+                      {it.highlight && <span className="mr-1.5 inline-block rounded-full bg-royal/10 px-2 text-xs font-medium text-royal">{t('creative.highlight')}</span>}
+                      <span className="text-xs text-body">{it.image ? t('creative.image') : it.url ? t('creative.hasVideo') : t('creative.noVideo')}</span>
                     </span>
                   </button>
                 </li>
               ))}
-              {cat.more && <li className="px-1 py-2.5 text-body">dan masih banyak lagi</li>}
+              {cat.more && <li className="px-1 py-2.5 text-body">{t('creative.more')}</li>}
             </ol>
           </div>
         </div>

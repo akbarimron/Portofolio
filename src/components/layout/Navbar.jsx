@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import useActiveSection from '../../hooks/useActiveSection'
+import { useLang } from '../../i18n/context'
+import LanguageSwitch from './LanguageSwitch'
 import { MenuIcon, CloseIcon } from '../ui/Icons'
 import { nav, sectionIds } from '../../data/nav'
 import { ease, dur } from '../../lib/motion'
@@ -10,6 +12,7 @@ import { ease, dur } from '../../lib/motion'
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const active = useActiveSection(sectionIds)
+  const { t } = useLang()
 
   useEffect(() => {
     if (!open) return
@@ -25,7 +28,7 @@ export default function Navbar() {
           Akbar <span className="text-royal">Imron</span>
         </a>
 
-        <nav aria-label="Navigasi utama" className="hidden items-center gap-1 xl:flex">
+        <nav aria-label={t('nav.main')} className="hidden items-center gap-1 xl:flex">
           {nav.map((n) => (
             <a
               key={n.id}
@@ -40,21 +43,22 @@ export default function Navbar() {
                   className="absolute inset-0 -z-10 rounded-lg bg-ice"
                 />
               )}
-              {n.label}
+              {t(`nav.${n.id}`)}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <LanguageSwitch />
           <a
             href="#contact"
-            className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-canvas transition-colors hover:bg-royal"
+            className="rounded-full bg-ink px-4 py-2.5 text-sm font-medium text-canvas transition-colors hover:bg-royal sm:px-5"
           >
-            Contact
+            {t('nav.contact')}
           </a>
           <button
             type="button"
-            aria-label={open ? 'Tutup menu' : 'Buka menu'}
+            aria-label={open ? t('nav.close') : t('nav.open')}
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
@@ -68,7 +72,7 @@ export default function Navbar() {
           {open && (
             <motion.nav
               id="mobile-menu"
-              aria-label="Menu seluler"
+              aria-label={t('nav.mobile')}
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -82,7 +86,7 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className={`block rounded-lg px-4 py-3 text-base ${active === n.id ? 'bg-ice text-ink' : 'text-body'}`}
                 >
-                  {n.label}
+                  {t(`nav.${n.id}`)}
                 </a>
               ))}
             </motion.nav>

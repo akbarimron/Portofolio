@@ -2,7 +2,7 @@
 // group: 'leadership' | 'teaching'
 export const experience = [
   {
-    id: 'genbi', group: 'leadership', meta: '2025 - sekarang',
+    id: 'genbi', group: 'leadership', meta: '2026 - sekarang',
     title: 'Generasi Baru Indonesia (GenBI)', org: 'Komunitas Penerima Beasiswa Bank Indonesia',
     text: 'Menyampaikan kebijakan kebanksentralan, menjalankan kegiatan sosial, dan menginisiasi program edukasi literasi finansial digital.',
   },
