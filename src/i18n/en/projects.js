@@ -71,7 +71,7 @@ export const research = {
       'Built as a full physical prototype: printed casing, pump, and piping.',
     ],
     stackGroups: R({ Controller: ['ESP32'], Sensors: ['Turbidity', 'TDS', 'Water level', 'Temperature', 'Viscosity', 'pH'] }),
-    shots: [{ title: 'Prototype, top view' }, { title: 'Prototype, side view' }],
+    shots: [{ title: 'Documentation at SMPN 1 Purwakarta' }, { title: 'Documentation with the team' }, { title: 'Prototype, top view' }, { title: 'Prototype, side view' }],
   },
   racket: {
     role: 'Research team member',

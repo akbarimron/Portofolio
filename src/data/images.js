@@ -145,6 +145,8 @@ export const images = {
   '3d-rumah-malam': '/images/porto/3d-rumah-malam.webp',
   '3d-rumah-gelap': '/images/porto/3d-rumah-gelap.webp',
   'story-asti': '/images/porto/story-asti.webp',
+  'water-smpn-purwakarta': '/images/porto/water-smpn-purwakarta.webp',
+  'water-tim': '/images/porto/water-tim.webp',
   'rapat-litabmas-1': '/images/porto/rapat-litabmas-1.webp',
   'rapat-litabmas-2': '/images/porto/rapat-litabmas-2.webp',
 

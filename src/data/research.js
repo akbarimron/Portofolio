@@ -15,8 +15,10 @@ export const research = [
       Pengendali: ['ESP32'],
       Sensor: ['Kekeruhan', 'TDS', 'Water level', 'Suhu', 'Kekentalan', 'pH'],
     },
-    image: 'water-1', links: [],
+    image: 'water-smpn-purwakarta', links: [],
     shots: [
+      { image: 'water-smpn-purwakarta', title: 'Dokumentasi di SMPN 1 Purwakarta' },
+      { image: 'water-tim', title: 'Dokumentasi bersama tim' },
       { image: 'water-1', title: 'Prototipe, tampak atas' },
       { image: 'water-2', title: 'Prototipe, tampak samping' },
     ],
