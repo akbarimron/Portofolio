@@ -14,12 +14,14 @@ const projectCards = [
   { image: 'litabmas-dashboard', label: 'Litabmas UPI' },
 ]
 
+// kategori yang tidak ikut slideshow hero (thumbnail video Cinematic kurang bagus)
+const SKIP = ['cinematic']
 const CREATIVE_CARDS = 16 // per set; dua set dipasang berdampingan untuk putaran tanpa putus
 const WIDTHS = ['w-[20rem]', 'w-[24rem]', 'w-[26rem]', 'w-[28rem]']
 
 // satu gambar dari tiap kategori bergantian, sampai jumlah terpenuhi
 const creativeCards = () => {
-  const lists = creative.map((c) => coverPool(c.id).map((cover) => ({ ...cover, label: c.title })))
+  const lists = creative.filter((c) => !SKIP.includes(c.id)).map((c) => coverPool(c.id).map((cover) => ({ ...cover, label: c.title })))
   const out = []
   for (let n = 0; out.length < CREATIVE_CARDS && lists.some((l) => l[n]); n++) {
     for (const l of lists) if (l[n] && out.length < CREATIVE_CARDS) out.push(l[n])
