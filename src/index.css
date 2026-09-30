@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import "@fontsource-variable/outfit";
+
+/* Palette from DESIGN.md: navy carries weight, royal is the single accent,
+   ice/mist are neutrals. Sky is reserved for the 3D scene and dark sections. */
+@theme {
+  --font-sans: "Outfit Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-canvas: #f9fbff;
+  --color-ice: #e8f2fe;
+  --color-mist: #d0e4fe;
+  --color-ink: #091f5c;
+  --color-ink-deep: #000b35;
+  --color-royal: #334daf;
+  --color-sky: #7096d1;
+  --color-body: #454650;
+  --color-error-text: #b3261e;
+  --color-hint: #6b6c78; /* placeholders: 5.2:1 on white */
+  --ease-emph: cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+@utility wrap {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1320px;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) { padding-inline: 2.5rem; }
+  @media (min-width: 1024px) { padding-inline: 5rem; }
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink-deep);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  ::selection { background: var(--color-royal); color: #fff; }
+  :focus-visible {
+    outline: 2px solid var(--color-royal);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .on-dark :focus-visible { outline-color: var(--color-mist); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+}
