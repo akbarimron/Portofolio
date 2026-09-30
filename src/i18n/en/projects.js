@@ -18,7 +18,7 @@ export const projects = {
   },
   litabmas: {
     title: 'UPI Litabmas Information System',
-    period: 'May 2026 - present (paid internship)',
+    period: 'May 2026 - present (internship)',
     text: 'DPPM UPI’s official platform for submitting proposals and reporting on research and community service, actively used by lecturers across UPI and managed through an admin panel.',
     highlights: [
       'Designed the back-end logic and database structure for the submission, review, and reporting flow.',
@@ -76,5 +76,26 @@ export const research = {
   racket: {
     role: 'Research team member',
     text: 'Sports research with lecturers. Technical details are not yet published.',
+  },
+  webdev: {
+    title: 'Web Developer, Litabmas and DPPM UPI',
+    role: 'Web developer, supporting lecturer research',
+    period: 'May 2026 - present (internship)',
+    text: 'Building and maintaining the official DPPM UPI website and the Litabmas Information System, where lecturers across UPI submit proposals and report on research and community service.',
+    highlights: [
+      'Designed the back-end logic and database for the flow from proposal and reviewer scoring to progress and final reports.',
+      'Built the DPPM UPI website: research group directory, document download center, and official announcement archive.',
+      'Created the admin panel for schemes, instruments, reviewers, partners, and timelines.',
+      'Joined development meetings with the DPPM team to discuss system requirements.',
+    ],
+    stackGroups: R(web),
+    shots: [
+      { title: 'Website presentation meeting' },
+      { title: 'Litabmas: program list (lecturer dashboard)' },
+      { title: 'Litabmas: admin panel' },
+      { title: 'DPPM: Research page' },
+      { title: 'DPPM: research group directory' },
+      { title: 'System development meeting' },
+    ],
   },
 }

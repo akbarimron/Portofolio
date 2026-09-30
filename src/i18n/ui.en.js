@@ -57,8 +57,8 @@ export default {
   'honors.intro': 'Scholarships, grants, and national competitions I took part in with my teams. Click one to see the details.',
 
   'research.title': 'Lecturer Research',
-  'research.intro': 'Research projects I joined as a team member alongside lecturers.',
-  'research.photo': 'Prototype photo of {title}',
+  'research.intro': 'Research I joined alongside lecturers, and the systems I built to support lecturer research.',
+  'research.photo': 'Photo of {title}',
   'research.unpublished': 'Not yet published',
 
   'projects.title': 'Projects',

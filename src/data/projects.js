@@ -36,7 +36,7 @@ export const projects = [
     id: 'litabmas',
     title: 'Sistem Informasi Litabmas UPI',
     role: 'Backend Programmer',
-    period: 'Mei 2026 - sekarang (magang berbayar)',
+    period: 'Mei 2026 - sekarang (magang)',
     text: 'Platform resmi DPPM UPI untuk pengajuan proposal dan pelaporan penelitian serta pengabdian kepada masyarakat, dipakai aktif oleh dosen se-UPI dan dikelola lewat panel admin.',
     highlights: [
       'Merancang logika back-end dan struktur basis data untuk alur pengajuan, review, dan pelaporan.',

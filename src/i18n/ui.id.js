@@ -58,8 +58,8 @@ export default {
   'honors.intro': 'Beasiswa, hibah, dan kompetisi tingkat nasional yang saya ikuti bersama tim. Klik satu untuk melihat detailnya.',
 
   'research.title': 'Penelitian Dosen',
-  'research.intro': 'Proyek riset yang saya ikuti sebagai anggota tim bersama dosen.',
-  'research.photo': 'Foto prototipe {title}',
+  'research.intro': 'Riset yang saya ikuti bersama dosen, dan sistem yang saya bangun untuk mendukung penelitian dosen.',
+  'research.photo': 'Foto {title}',
   'research.unpublished': 'Belum dipublikasikan',
 
   'projects.title': 'Proyek',
