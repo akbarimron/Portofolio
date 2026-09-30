@@ -27,7 +27,7 @@ export const creative = [
       { title: 'After Movie Gebyar Ramadhan 2025', url: 'https://youtu.be/43NzqY8sKyg' },
       { title: 'Cinematography Tari Tradisional', url: 'https://youtu.be/NA7yZiGsEII' },
       { title: 'Short Movie Fantasy Theme, 30 menit', url: 'https://youtu.be/HN16RZ3S1OM' },
-      { title: 'Head Explode VFX Short Video', url: '' },
+      { title: 'Head Explode VFX Short Video', url: 'https://youtu.be/KRtnu9bvbgs' },
       { title: 'VFX Commission Super Power', url: 'https://youtu.be/r27mf5YhOug' },
       { title: 'Video Microteaching LIDM UPI 2025', url: 'https://youtu.be/V-bXqz4Wwqs' },
       { title: 'Video Simulasi Pembelajaran Tatap Muka (PAT) MTsN 1 Banyuwangi, karya saat MTs', url: 'https://youtu.be/ZHsNNpx2r_8' },
