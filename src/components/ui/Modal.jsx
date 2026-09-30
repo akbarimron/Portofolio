@@ -36,22 +36,23 @@ export default function Modal({ title, subtitle, actions, onClose, onKeyDown, wi
         transition={{ duration: dur.base, ease }}
         className={`mx-auto flex max-h-full w-full flex-col overflow-hidden rounded-3xl bg-white text-ink-deep ${wide ? 'max-w-6xl' : 'max-w-5xl'}`}
       >
-        <header className="flex items-start justify-between gap-4 border-b border-mist p-5 md:p-6">
-          <div>
-            <h3 id="modal-title" className="text-2xl font-semibold text-ink">{title}</h3>
+        <header className="flex flex-wrap items-start gap-x-4 gap-y-2 border-b border-mist p-5 md:flex-nowrap md:p-6">
+          <div className="min-w-0 flex-1 basis-0">
+            <h3 id="modal-title" className="text-xl font-semibold leading-snug text-ink [overflow-wrap:anywhere] md:text-2xl">{title}</h3>
             {subtitle && <p className="mt-1 text-sm text-body">{subtitle}</p>}
           </div>
-          <div className="flex shrink-0 items-center gap-2">
+          {/* HP: judul + tombol tutup di baris atas, tautan turun ke baris sendiri supaya teks tidak terhimpit */}
+          <button
+            type="button"
+            autoFocus
+            onClick={() => ref.current.close()}
+            aria-label={t('close')}
+            className="order-2 -mr-2 -mt-1 grid size-11 shrink-0 place-items-center rounded-lg hover:bg-ice md:order-3 md:m-0"
+          >
+            <CloseIcon />
+          </button>
+          <div className="order-3 -ml-3 flex w-full flex-wrap items-center gap-x-4 gap-y-1 empty:hidden md:order-2 md:ml-0 md:w-auto md:shrink-0 md:justify-end md:gap-2">
             {actions}
-            <button
-              type="button"
-              autoFocus
-              onClick={() => ref.current.close()}
-              aria-label={t('close')}
-              className="grid size-11 place-items-center rounded-lg hover:bg-ice"
-            >
-              <CloseIcon />
-            </button>
           </div>
         </header>
         {children}
