@@ -36,11 +36,15 @@ const sourceOf = (item) => {
     : null
 }
 
-// `previews` (render galleries of a work) add many more pictures, so the pool is large and varied
+// `previews` (render galleries) dan `tabs` (lembar desain dengan tab) menambah banyak gambar, jadi pool besar dan bervariasi
 const pools = Object.fromEntries(
   creative.map((c) => {
     const own = c.items
-      .flatMap((i) => [sourceOf(i), ...(i.noCover ? [] : (i.previews ?? []).map((k) => ({ src: images[k] })))])
+      .flatMap((i) => [
+        sourceOf(i),
+        ...(i.noCover ? [] : (i.previews ?? []).map((k) => ({ src: images[k] }))),
+        ...(i.noCover ? [] : (i.tabs ?? []).map((t) => ({ src: images[t.image] }))),
+      ])
       .filter(Boolean)
     const unique = [...new Map(own.map((o) => [o.src, o])).values()]
     return [c.id, shuffle(unique.length ? unique : c.covers.map((k) => ({ src: images[k] })))]

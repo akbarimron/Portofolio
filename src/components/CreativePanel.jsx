@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import SafeImage from './ui/SafeImage'
+import { shuffle } from '../data/covers'
 import { useLang } from '../i18n/context'
 
 // On desktop the strip is an accordion: the hovered/focused panel grows and
@@ -9,18 +10,20 @@ export default function CreativePanel({ item, covers, delay = 0, active, onActiv
   const { t } = useLang()
   // the cover cycles through every work's thumbnail; `prev` stays underneath so the next one cross-fades in
   const [pos, setPos] = useState({ cur: 0, prev: 0 })
+  const cur = useRef(0)
+  const queue = useRef([])
 
   useEffect(() => {
     if (covers.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
     let timer
     const start = setTimeout(() => {
-      const next = (p) => {
-        // random, but never the picture on screen or the one just before it
-        const choices = covers.map((_, i) => i).filter((i) => i !== p.cur && i !== p.prev)
-        const pool = choices.length ? choices : covers.map((_, i) => i).filter((i) => i !== p.cur)
-        return { prev: p.cur, cur: pool[Math.floor(Math.random() * pool.length)] }
-      }
-      timer = setInterval(() => setPos(next), 4500)
+      // satu putaran = semua gambar tampil tepat sekali dalam urutan acak, lalu diundi ulang
+      timer = setInterval(() => {
+        if (!queue.current.length) queue.current = shuffle(covers.map((_, i) => i).filter((i) => i !== cur.current))
+        const next = queue.current.shift()
+        setPos({ prev: cur.current, cur: next })
+        cur.current = next
+      }, 4500)
     }, delay)
     return () => { clearTimeout(start); clearInterval(timer) }
   }, [covers.length, delay])
