@@ -24,31 +24,45 @@ const compose = ({ name, email, message }, category, subject) => {
   }
 }
 
-// No backend: the form opens a Gmail compose window already addressed to
-// profile.email with subject and body filled in. The visitor only presses
-// Send in their own account. A mailto: link covers people without Gmail.
+// The form posts to /api/contact (api/contact.js, a Vercel function) which emails the
+// owner's Gmail directly. If that function is not configured or fails (dev server, missing
+// env vars, SMTP error), the visitor gets Gmail / mailto links with everything prefilled,
+// so a message is never lost.
+// status: idle | sending | sent | fallback
 export default function ContactForm() {
   const { t } = useLang()
-  const [v, setV] = useState({ name: '', email: '', message: '' })
+  const [v, setV] = useState({ name: '', email: '', message: '', website: '' })
   const [category, setCategory] = useState(CATEGORIES[0])
   const [errors, setErrors] = useState({})
+  const [status, setStatus] = useState('idle')
   const [links, setLinks] = useState(null)
 
   const set = (k) => (e) => setV((s) => ({ ...s, [k]: e.target.value }))
 
-  function submit(e) {
+  async function submit(e) {
     e.preventDefault()
+    if (status === 'sending') return
     const found = validate(v)
     setErrors(found)
     setLinks(null)
     if (Object.keys(found).length) return
-    const urls = compose(v, category, t('form.subject', { category, name: v.name }))
-    setLinks(urls)
-    // Don't pass 'noopener' here: it makes window.open() return null even when the
-    // tab opened, and we'd wrongly navigate this page away too. Cut the link by hand.
-    const tab = window.open(urls.gmail, '_blank')
-    if (tab) tab.opener = null
-    else window.location.href = urls.gmail // popup really was blocked
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...v, category }),
+      })
+      if (res.ok) {
+        setStatus('sent')
+        setV({ name: '', email: '', message: '', website: '' })
+        return
+      }
+    } catch {
+      // network error: fall through to the Gmail links
+    }
+    setLinks(compose(v, category, t('form.subject', { category, name: v.name })))
+    setStatus('fallback')
   }
 
   const Err = ({ id }) =>
@@ -94,18 +108,32 @@ export default function ContactForm() {
         <Err id="message" />
       </div>
 
-      <button type="submit" className="min-h-12 w-full rounded-full bg-ink font-medium text-canvas transition-colors hover:bg-royal">
-        {t('form.submit')}
+      {/* honeypot: hidden from people, filled in by bots; the server drops those messages */}
+      <div aria-hidden="true" className="sr-only">
+        <label>
+          Website
+          <input name="website" tabIndex={-1} autoComplete="off" value={v.website} onChange={set('website')} />
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        disabled={status === 'sending'}
+        className="min-h-12 w-full rounded-full bg-ink font-medium text-canvas transition-colors hover:bg-royal disabled:cursor-wait disabled:opacity-70"
+      >
+        {status === 'sending' ? t('form.sending') : t('form.submit')}
       </button>
       <p aria-live="polite" className="text-sm leading-relaxed text-body">
-        {links ? (
+        {status === 'sent' && <span className="font-medium text-ink-deep">{t('form.done')}</span>}
+        {status === 'fallback' && links && (
           <>
-            {t('form.sent', { to: profile.email })}{' '}
+            {t('form.fail')}{' '}
+            <a href={links.gmail} target="_blank" rel="noreferrer" className="font-medium text-royal underline underline-offset-4">{t('form.gmail')}</a>
+            {' · '}
             <a href={links.mailto} className="font-medium text-royal underline underline-offset-4">{t('form.mailto')}</a>
           </>
-        ) : (
-          t('form.hint', { to: profile.email })
         )}
+        {(status === 'idle' || status === 'sending') && t('form.hint', { to: profile.email })}
       </p>
     </form>
   )
