@@ -28,12 +28,13 @@ export function parse(body) {
 }
 
 export function buildMail({ name, email, category, message }, from, to) {
+  // Gmail selalu mengirim dari akun pemilik; pengunjung dikenali lewat nama pengirim, subjek, isi, dan Reply-To.
   return {
-    from: { name: 'Portofolio', address: from },
+    from: { name: `${name} (via Portofolio)`, address: from },
     to,
     replyTo: { name, address: email },
-    subject: `[${category}] Pesan dari ${name}`,
-    text: `${message}\n\n--\n${name}\n${email}\nTopik: ${category}\nDikirim dari formulir kontak portofolio.`,
+    subject: `[${category}] Pesan dari ${name} (${email})`,
+    text: `Dari: ${name} <${email}>\nTopik: ${category}\n\n${message}\n\n--\nBalas email ini untuk menjawab langsung ke ${email}.`,
   }
 }
 
