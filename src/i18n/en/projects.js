@@ -48,6 +48,32 @@ export const projects = {
       { title: 'Demo video (LIDM 2026, Digital Education Technology Innovation)' },
     ],
   },
+  penaguru: {
+    period: 'Mobile Programming (IK300), 2026',
+    text: 'A workspace app for vocational and senior high school teachers to log class journals, compile report cards, and get teaching-strategy advice from an AI assistant. A final project replacing the Mobile Programming exam, Group 3.',
+    highlights: [
+      'Class journal: log observations per student with tags, 1-5 scores (knowledge, skills, attitude), and voice dictation. Entries can be saved offline and synced later.',
+      'Two roles in one account: subject teacher and homeroom teacher, each with their own dashboard.',
+      'Subject report cards are drafted from the journal, submitted to the homeroom teacher for approval, and the message can then be sent to parents through WhatsApp.',
+      'Assessment agenda and an AI assistant (Gemini) for teaching-strategy suggestions.',
+      'Runs on Android and the web, backed by PostgreSQL on Supabase with row level security.',
+    ],
+    stackGroups: R({
+      App: ['React Native (Expo)', 'TypeScript'],
+      'Backend and data': ['Supabase PostgreSQL', 'Google Gemini AI'],
+      Infrastructure: ['Vercel', 'Git & GitHub'],
+    }),
+    links: [{ label: 'Try the web app' }, { label: 'Showcase site' }, { label: 'Demo video' }, { label: 'GitHub' }],
+    shots: [
+      { title: 'PenaGuru: smart workspace and AI assistant for teachers' },
+      { title: 'Home: next session, homeroom class, and subjects' },
+      { title: 'Class dashboard: active topic and achievement' },
+      { title: 'Log a journal entry: subject, students, and voice dictation' },
+      { title: 'Student profile: achievement per domain and journal history' },
+      { title: 'AI assistant and per-teacher subject report cards' },
+      { title: 'PenaGuru demo video (5 minutes)' },
+    ],
+  },
   room404: {
     text: 'First-person horror game for an OOP course project. Players walk a dark dormitory hallway to collect three voodoo dolls, then return to the front door to escape.',
     highlights: [
@@ -58,6 +84,48 @@ export const projects = {
     ],
     links: [{ label: 'Play on itch.io' }, { label: 'Room404 video' }],
     shots: [{ title: 'Dormitory hallway' }, { title: 'Corridor and cabinet' }, { title: 'Door to a room' }, { title: 'Room404 video' }],
+  },
+  multiverse: {
+    text: 'A 2D 16-bit pixel-art board-crawler RPG. The player is cast into a multiverse that twists city streets into an adventure board full of school zombies, demons, and strange occurrences, and must survive to find the way home.',
+    highlights: [
+      'Branching board exploration: pick a route through combat tiles, mystery chests, shops, and rest stops.',
+      'Turn-based combat with a QTE parry/dodge: good timing cuts incoming damage.',
+      'Tactical inventory, crafting, and throwing items from the bag mid-battle.',
+      'In-game guide book, with keyboard and mouse controls on PC and touch controls on Android.',
+      'Released free on itch.io for Windows and Android.',
+    ],
+    stackGroups: R({ Game: ['Godot Engine 4', 'GDScript'], Platform: ['Windows', 'Android'] }),
+    links: [{ label: 'Play on itch.io' }],
+    shots: [
+      { title: 'Lost in MultiverseRPG' },
+      { title: 'Adventure board and map' },
+      { title: 'Turn-based combat' },
+      { title: 'Character and enemy status conditions' },
+      { title: 'Bag and equipment' },
+      { title: 'In-game guide book' },
+    ],
+  },
+  grimoire: {
+    period: 'Educational Game Development, Group 3',
+    text: 'A 2D turn-based educational RPG for learning search and sorting algorithms. The player is Aegis, a scholar knight who restores The Great Index from the Chaos King through questions, puzzles, and battles.',
+    highlights: [
+      'Searching and Sorting topics (Linear, Binary, Bubble, Selection, Insertion, Merge, Quick Sort) are taught through battles and a labyrinth map.',
+      'Seven question formats, four of which make the player run the algorithm themselves, so it tests understanding rather than guessing.',
+      'A Study Book with pseudocode and step-by-step examples, available at any time.',
+      'Adventure report: grade, accuracy per topic, weak spots, and a study plan, exportable as text and CSV.',
+      'Built by a team of five; I handled the engine architecture and lead programming.',
+    ],
+    stackGroups: R({ Game: ['Unity', 'C#', 'Godot Engine'] }),
+    shots: [
+      { title: 'Title screen' },
+      { title: 'Library labyrinth board' },
+      { title: 'Binary Search puzzle' },
+      { title: 'Battle question: Linear Search' },
+      { title: 'Golem battle: Bubble Sort' },
+      { title: 'Equipment shop' },
+      { title: 'Study Book: Binary Search pseudocode' },
+      { title: 'Adventure report' },
+    ],
   },
 }
 

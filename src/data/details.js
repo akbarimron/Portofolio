@@ -149,6 +149,24 @@ export const experienceDetail = {
 }
 
 export const awardDetail = {
+  impact: {
+    facts: {
+      Capaian: 'Juara 1',
+      Kategori: 'Learning Innovation',
+      Ajang: 'IMPACT 2026, International Maritime, Pedagogy, and Innovation Competition',
+      Penyelenggara: 'Fakultas Keguruan dan Ilmu Pendidikan, Universitas Maritim Raja Ali Haji',
+      Tahun: '2026',
+    },
+    paragraphs: [
+      'IMPACT 2026 adalah kompetisi inovasi pendidikan dan kemaritiman yang diselenggarakan Fakultas Keguruan dan Ilmu Pendidikan Universitas Maritim Raja Ali Haji. Pada kategori Learning Innovation, tim kami meraih juara 1.',
+    ],
+    points: ['Karya yang dilombakan: inovasi pembelajaran berupa IoT gamepad dan game.'],
+    proofs: [
+      { image: 'award-impact-trophy', title: 'Piala dan sertifikat Juara 1 Learning Innovation, IMPACT 2026' },
+      { image: 'award-impact-gedung', title: 'Bersama piala di depan Gedung A, Universitas Maritim Raja Ali Haji' },
+      { image: 'award-impact-ceremony', title: 'Awards Ceremony IMPACT 2026, foto bersama para pemenang' },
+    ],
+  },
   'genbi-beasiswa': {
     facts: { Jenis: 'Beasiswa', Pemberi: 'Bank Indonesia', Status: 'Aktif' },
     paragraphs: [
@@ -182,12 +200,13 @@ export const awardDetail = {
     ],
   },
   'pkm-vgk': {
-    facts: { Capaian: 'Pendanaan', Skema: 'PKM Video Gagasan Konstruktif (VGK)', Penyelenggara: 'AMLI', Tahun: '2026' },
+    facts: { Capaian: 'Juara 2 dan pendanaan', Skema: 'PKM Video Gagasan Konstruktif (VGK)', Penyelenggara: 'AMLI', Tingkat: 'Nasional', Tahun: '2026' },
     paragraphs: [
       'Gagasan "RECLAIM" memulihkan lahan pascatambang yang terdegradasi melalui intervensi teknologi dan edukasi, sehingga lahan itu kembali menjadi sumber kehidupan yang produktif dan berkelanjutan untuk mendukung kemandirian pangan Indonesia.',
     ],
     points: ['Merancang identitas visual proyek, termasuk logo RECLAIM.'],
     proofs: [
+      { image: 'award-pkm-juara2', title: 'Pengumuman Juara 2 PKM-VGK AMLI dan Surat Pencatatan Ciptaan, bersama tim di FPMIPA UPI' },
       { type: 'video', embed: 'https://www.youtube.com/embed/9-bovWanRYs', poster: 'https://i.ytimg.com/vi/9-bovWanRYs/hqdefault.jpg', title: 'Video Project Introduction RECLAIM' },
       { type: 'video', embed: 'https://www.youtube.com/embed/CrwyAHrYXNw', poster: 'https://i.ytimg.com/vi/CrwyAHrYXNw/hqdefault.jpg', title: 'Video The Creators Behind the Project RECLAIM' },
       { image: 'design-logo-reclaim', title: 'Logo RECLAIM' },

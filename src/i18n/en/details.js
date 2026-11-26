@@ -132,6 +132,24 @@ export const experienceDetail = {
 }
 
 export const awardDetail = {
+  impact: {
+    facts: R({
+      Achievement: '1st Place',
+      Category: 'Learning Innovation',
+      Event: 'IMPACT 2026, International Maritime, Pedagogy, and Innovation Competition',
+      Organiser: 'Faculty of Teacher Training and Education, Universitas Maritim Raja Ali Haji',
+      Year: '2026',
+    }),
+    paragraphs: [
+      'IMPACT 2026 is an education and maritime innovation competition organised by the Faculty of Teacher Training and Education at Universitas Maritim Raja Ali Haji. In the Learning Innovation category, our team won 1st place.',
+    ],
+    points: ['Entry: a learning innovation built on an IoT gamepad and a game.'],
+    proofs: [
+      { title: '1st Place Learning Innovation trophy and certificate, IMPACT 2026' },
+      { title: 'With the trophy in front of Building A, Universitas Maritim Raja Ali Haji' },
+      { title: 'IMPACT 2026 Awards Ceremony, group photo with the winners' },
+    ],
+  },
   'genbi-beasiswa': {
     facts: R({ Type: 'Scholarship', Provider: 'Bank Indonesia', Status: 'Active' }),
     paragraphs: [
@@ -162,12 +180,13 @@ export const awardDetail = {
     ],
   },
   'pkm-vgk': {
-    facts: R({ Achievement: 'Funded', Scheme: 'PKM Constructive Idea Video (VGK)', Organiser: 'AMLI', Year: '2026' }),
+    facts: R({ Achievement: '2nd Place and funding', Scheme: 'PKM Constructive Idea Video (VGK)', Organiser: 'AMLI', Level: 'National', Year: '2026' }),
     paragraphs: [
       'The "RECLAIM" idea restores degraded post-mining land through technology and education, turning it back into productive, sustainable land that supports Indonesia’s food self-sufficiency.',
     ],
     points: ['Designed the project’s visual identity, including the RECLAIM logo.'],
     proofs: [
+      { title: '2nd Place PKM-VGK AMLI announcement and Copyright Registration Letter, with the team at FPMIPA UPI' },
       { title: 'RECLAIM Project Introduction video' },
       { title: 'RECLAIM The Creators Behind the Project video' },
       { title: 'RECLAIM logo' },

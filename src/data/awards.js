@@ -9,9 +9,14 @@ export const featuredAward = {
 
 export const awards = [
   {
-    id: 'pkm-vgk', year: '2026', level: 'Pendanaan',
-    title: 'Pendanaan PKM-VGK AMLI 2026', sub: 'Video Gagasan Konstruktif "RECLAIM"',
-    text: 'Pendanaan PKM Video Gagasan Konstruktif dari AMLI untuk proyek "RECLAIM": gagasan memulihkan lahan pascatambang lewat intervensi teknologi dan edukasi.',
+    id: 'impact', year: '2026', level: 'Juara 1',
+    title: 'Juara 1 Learning Innovation, IMPACT 2026', sub: 'International Maritime, Pedagogy, and Innovation Competition, Universitas Maritim Raja Ali Haji',
+    text: 'Juara 1 kategori Learning Innovation lewat inovasi pembelajaran berbasis IoT gamepad dan game.',
+  },
+  {
+    id: 'pkm-vgk', year: '2026', level: 'Juara 2, Nasional',
+    title: 'Juara 2 PKM-VGK AMLI 2026', sub: 'Video Gagasan Konstruktif "RECLAIM"',
+    text: 'Juara 2 skema PKM Video Gagasan Konstruktif dari AMLI, sekaligus memperoleh pendanaan, untuk proyek "RECLAIM": gagasan memulihkan lahan pascatambang lewat intervensi teknologi dan edukasi.',
   },
   {
     id: 'riseup', year: '2026', level: 'Pendanaan',

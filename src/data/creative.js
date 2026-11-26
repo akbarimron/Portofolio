@@ -53,6 +53,7 @@ export const creative = [
         previews: ['3d-rumah-siang', '3d-rumah-dekat', '3d-rumah-malam', '3d-rumah-gelap'],
       },
       { title: '3D Simulasi RECLAIM (PKM-VGK)', url: 'https://youtu.be/QvC3nx21HAI', thumb: 'reclaim-blender' },
+      { title: 'Animated Storytelling 3D (DIMASTI AMLI 2025)', url: 'https://youtu.be/CODfqjJPLc0', thumb: 'dimasti-poster' },
     ],
   },
   {

@@ -11,6 +11,9 @@ const projectCards = [
   { image: 'dppm-penelitian', label: 'DPPM UPI' },
   { image: 'studyduel', label: 'StudyDuel' },
   { image: 'room404', label: 'Room404' },
+  { image: 'penaguru-cover', label: 'PenaGuru' },
+  { image: 'multiverse-cover', label: 'Lost in MultiverseRPG' },
+  { image: 'grimoire-judul', label: "Grimoire's Aegis" },
   { image: 'litabmas-dashboard', label: 'Litabmas UPI' },
 ]
 
