@@ -169,6 +169,8 @@ export const awardDetail = {
       'IoT gamepad: stik buatan sendiri dengan ESP32-S3 yang nirkabel lewat ESP-NOW ke dongle ESP32 di laptop. Punya 8 tombol, 2 joystick, dan buzzer yang berbunyi sesuai kejadian di game. Tombolnya bisa diatur ulang di Pengaturan.',
     ],
     proofs: [
+      { image: 'award-impact-trophy', title: 'Berdua dengan rekan tim memegang piala dan sertifikat Juara 1 Learning Innovation, IMPACT 2026' },
+      { image: 'award-impact-gedung', title: 'Berdua dengan rekan tim dan piala di depan Gedung A, Universitas Maritim Raja Ali Haji' },
       { image: 'aragonica-kapal', title: 'Mengemudikan kapal riset menuju titik penelitian' },
       { image: 'award-impact-ceremony', title: 'Awards Ceremony IMPACT 2026, foto bersama para pemenang' },
     ],

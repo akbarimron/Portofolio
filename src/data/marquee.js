@@ -14,6 +14,7 @@ const projectCards = [
   { image: 'penaguru-cover', label: 'PenaGuru' },
   { image: 'multiverse-cover', label: 'Lost in MultiverseRPG' },
   { image: 'grimoire-judul', label: "Grimoire's Aegis" },
+  { image: 'aragonica-kapal', label: 'ARAGONICA EXPEDITION' },
   { image: 'litabmas-dashboard', label: 'Litabmas UPI' },
 ]
 

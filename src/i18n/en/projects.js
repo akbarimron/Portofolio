@@ -129,6 +129,32 @@ export const projects = {
       { title: 'Monster bestiary' },
     ],
   },
+  aragonica: {
+    period: '1st Place Learning Innovation, IMPACT 2026',
+    role: 'Game developer, IoT gamepad',
+    text: 'A first-person 3D game about ocean acidification and coral restoration. Players lead an expedition aboard the research vessel KM Maritim I: sailing, measuring pH, diving, and building a Biorock reef. It plays with keyboard and mouse or a self-built wireless ESP32 controller.',
+    highlights: [
+      'A full field-science loop: steering the vessel, dropping anchor, measuring seawater pH, diving, photographing and sampling coral, then uploading the data at the ship terminal.',
+      'Chemistry made visible: a 3D molecule lab shows CO2 turning into carbonic acid until coral carbonate dissolves.',
+      'Follow-up missions: finding the cause with binoculars, building a Biorock reef, planting seagrass, and filing an expedition report.',
+      'IoT gamepad: a wireless ESP32-S3 controller over ESP-NOW to an ESP32 dongle on the laptop, with 8 buttons, 2 joysticks, and a buzzer. Buttons can be remapped in Settings.',
+      '14-step tutorial, Low/Medium/High graphics settings, and two languages (Indonesian and English).',
+    ],
+    stackGroups: R({
+      Game: ['Unity', 'C#'],
+      'IoT gamepad': ['ESP32-S3', 'ESP-NOW', 'Arduino'],
+    }),
+    shots: [
+      { title: 'Deck of the research vessel KM Maritim I flying the UPI flag' },
+      { title: 'Wheelhouse: steering wheel and throttle' },
+      { title: 'Steering the vessel to the study site' },
+      { title: 'Dropping anchor on the sand area' },
+      { title: 'Measuring seawater pH at the ship sensor' },
+      { title: 'Uploading photos and samples at the ship terminal' },
+      { title: 'Inventory aboard the vessel' },
+      { title: 'Teluk Lumbara sea chart aboard' },
+    ],
+  },
 }
 
 export const research = {

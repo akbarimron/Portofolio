@@ -152,6 +152,8 @@ export const awardDetail = {
       'IoT gamepad: a self-built controller with an ESP32-S3 that connects wirelessly over ESP-NOW to an ESP32 dongle on the laptop. It has 8 buttons, 2 joysticks, and a buzzer that sounds with in-game events. Buttons can be remapped in Settings.',
     ],
     proofs: [
+      { title: 'With my teammate holding the 1st Place Learning Innovation trophy and certificate, IMPACT 2026' },
+      { title: 'With my teammate and the trophy in front of Building A, Universitas Maritim Raja Ali Haji' },
       { title: 'Steering the research vessel to the study site' },
       { title: 'IMPACT 2026 Awards Ceremony, group photo with the winners' },
     ],
