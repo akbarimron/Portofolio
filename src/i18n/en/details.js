@@ -135,48 +135,32 @@ export const awardDetail = {
   impact: {
     facts: R({
       Achievement: '1st Place',
+      Level: 'International',
       Category: 'Learning Innovation',
       Event: 'IMPACT 2026, International Maritime, Pedagogy, and Innovation Competition',
       Organiser: 'Faculty of Teacher Training and Education, Universitas Maritim Raja Ali Haji',
       Year: '2026',
     }),
     paragraphs: [
-      'IMPACT 2026 is an education and maritime innovation competition organised by the Faculty of Teacher Training and Education at Universitas Maritim Raja Ali Haji. In the Learning Innovation category, our team won 1st place.',
+      'IMPACT 2026 is an international education and maritime innovation competition organised by the Faculty of Teacher Training and Education at Universitas Maritim Raja Ali Haji. In the Learning Innovation category, our team won 1st place with ARAGONICA EXPEDITION.',
     ],
-    points: ['Entry: a learning innovation built on an IoT gamepad and a game.'],
+    points: [
+      'ARAGONICA EXPEDITION: a first-person 3D game (Unity) about ocean acidification and coral restoration. Players sail, measure pH, dive, photograph and sample coral, take the chemical reaction apart in a 3D molecule lab, build a Biorock reef, and file an expedition report.',
+      'IoT gamepad: a self-built controller with an ESP32-S3 that connects wirelessly over ESP-NOW to an ESP32 dongle on the laptop. It has 8 buttons, 2 joysticks, and a buzzer that sounds with in-game events. Buttons can be remapped in Settings.',
+    ],
     proofs: [
       { title: '1st Place Learning Innovation trophy and certificate, IMPACT 2026' },
       { title: 'With the trophy in front of Building A, Universitas Maritim Raja Ali Haji' },
       { title: 'IMPACT 2026 Awards Ceremony, group photo with the winners' },
-    ],
-  },
-  'genbi-beasiswa': {
-    facts: R({ Type: 'Scholarship', Provider: 'Bank Indonesia', Status: 'Active' }),
-    paragraphs: [
-      'The Bank Indonesia Central Banking Scholarship is awarded through selection on academic achievement, leadership, and organisational record. The process covers documents, a digital economy essay, and a panel interview.',
-      'As a recipient, I represent UPI among Generasi Baru Indonesia for central banking literacy advocacy and community programs.',
-    ],
-    proofs: [
-      { title: 'World Book Day 2026, Bank Indonesia' },
-      { title: 'Community service with children' },
-      { title: 'Education and community service session in the park' },
-      { title: 'GenBI members group photo at the sports hall' },
-      { title: 'GenBI members group photo' },
-      { title: 'GenBI Night, receiving the Best Intern Staff award 2025/2026' },
-    ],
-  },
-  lidm: {
-    facts: R({ Achievement: 'Finalist', Category: 'Microteaching', Year: '2025', Level: 'University (UPI)' }),
-    paragraphs: ['Reached the final round of LIDM UPI 2025 in the microteaching category.'],
-    proofs: [
-      { title: 'LIDM UPI 2025 video' },
-      { title: 'Lesson slide "Fun Coding with Scratch!"' },
-      { title: 'Group photo with students in the classroom' },
-      { title: 'Group photo in the school yard' },
-      { title: 'Group photo in front of the Science Laboratory, SMPN 6 Lembang' },
-      { title: 'Group photo in the laboratory room' },
-      { title: 'Photo with one of the students' },
-      { title: 'Team photo' },
+      { title: 'IoT gamepad: wireless ESP32 controller with remappable buttons' },
+      { title: 'Two ways to play: keyboard and mouse, or the ESP32 controller' },
+      { title: 'ARAGONICA EXPEDITION: research vessel KM Maritim I flying the UPI flag' },
+      { title: 'Steering the research vessel to the study site' },
+      { title: 'Diving on the coral reef' },
+      { title: 'Photographing damaged coral as evidence' },
+      { title: 'Taking a coral fragment sample' },
+      { title: 'Teluk Lumbara sea chart' },
+      { title: '3D molecule lab: carbon dioxide' },
     ],
   },
   'pkm-vgk': {
@@ -186,6 +170,7 @@ export const awardDetail = {
     ],
     points: ['Designed the project’s visual identity, including the RECLAIM logo.'],
     proofs: [
+      { title: 'Final Output Video, PKM-VGK AMLI 2026 | RECLAIM' },
       { title: '2nd Place PKM-VGK AMLI announcement and Copyright Registration Letter, with the team at FPMIPA UPI' },
       { title: 'RECLAIM Project Introduction video' },
       { title: 'RECLAIM The Creators Behind the Project video' },

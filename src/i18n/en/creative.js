@@ -28,7 +28,7 @@ export const creative = {
       { title: '3D Small Isometric Beach' },
       { title: '3D House in Jungle, Night and Day' },
       { title: 'RECLAIM 3D Simulation (PKM-VGK)' },
-      { title: '3D Animated Storytelling (DIMASTI AMLI 2025)' },
+      { title: '3D Animated Storytelling (DIMASTI AMLI 2026)' },
     ],
   },
   motion: {
@@ -42,6 +42,7 @@ export const creative = {
       { title: 'Animated Storytelling Educational Video (DIMASTI AMLI 2025)' },
       { title: 'RECLAIM Project Introduction Video (PKM-VGK)' },
       { title: 'RECLAIM The Creators Behind the Project Video (PKM-VGK)' },
+      { title: 'RECLAIM Final Output Video (PKM-VGK AMLI 2026)' },
     ],
   },
   design: {

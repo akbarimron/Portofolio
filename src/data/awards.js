@@ -9,9 +9,9 @@ export const featuredAward = {
 
 export const awards = [
   {
-    id: 'impact', year: '2026', level: 'Juara 1',
+    id: 'impact', year: '2026', level: 'Juara 1, Internasional',
     title: 'Juara 1 Learning Innovation, IMPACT 2026', sub: 'International Maritime, Pedagogy, and Innovation Competition, Universitas Maritim Raja Ali Haji',
-    text: 'Juara 1 kategori Learning Innovation lewat inovasi pembelajaran berbasis IoT gamepad dan game.',
+    text: 'Juara 1 kategori Learning Innovation tingkat internasional lewat ARAGONICA EXPEDITION, game 3D edukasi pengasaman laut yang bisa dimainkan dengan IoT gamepad buatan sendiri.',
   },
   {
     id: 'pkm-vgk', year: '2026', level: 'Juara 2, Nasional',

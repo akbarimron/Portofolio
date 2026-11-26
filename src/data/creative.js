@@ -53,7 +53,7 @@ export const creative = [
         previews: ['3d-rumah-siang', '3d-rumah-dekat', '3d-rumah-malam', '3d-rumah-gelap'],
       },
       { title: '3D Simulasi RECLAIM (PKM-VGK)', url: 'https://youtu.be/QvC3nx21HAI', thumb: 'reclaim-blender' },
-      { title: 'Animated Storytelling 3D (DIMASTI AMLI 2025)', url: 'https://youtu.be/CODfqjJPLc0', thumb: 'dimasti-poster' },
+      { title: 'Animated Storytelling 3D (DIMASTI AMLI 2026)', url: 'https://youtu.be/RFJFcuWppN8' },
     ],
   },
   {
@@ -70,6 +70,7 @@ export const creative = [
       { title: 'Animated Storytelling Educational Video (DIMASTI AMLI 2025)', url: 'https://youtu.be/CODfqjJPLc0' },
       { title: 'Video Project Introduction RECLAIM (PKM-VGK)', url: 'https://youtu.be/9-bovWanRYs' },
       { title: 'Video The Creators Behind the Project RECLAIM (PKM-VGK)', url: 'https://youtu.be/CrwyAHrYXNw' },
+      { title: 'Video Luaran Akhir RECLAIM (PKM-VGK AMLI 2026)', url: 'https://youtu.be/z1a8KZ65usI' },
     ],
   },
   {
