@@ -165,8 +165,8 @@ export const awardDetail = {
       'IMPACT 2026 adalah kompetisi internasional inovasi pendidikan dan kemaritiman yang diselenggarakan Fakultas Keguruan dan Ilmu Pendidikan Universitas Maritim Raja Ali Haji. Pada kategori Learning Innovation, tim kami meraih juara 1 lewat ARAGONICA EXPEDITION.',
     ],
     points: [
-      'ARAGONICA EXPEDITION: game 3D first-person (Unity) tentang pengasaman laut dan restorasi terumbu karang. Pemain berlayar, mengukur pH, menyelam, memotret dan mengambil sampel karang, membongkar reaksi kimia di lab molekul 3D, membangun terumbu Biorock, lalu menyusun laporan ekspedisi.',
-      'IoT gamepad: stik buatan sendiri dengan ESP32-S3 yang nirkabel lewat ESP-NOW ke dongle ESP32 di laptop. Punya 8 tombol, 2 joystick, dan buzzer yang berbunyi sesuai kejadian di game. Tombolnya bisa diatur ulang di Pengaturan.',
+      'ARAGONICA EXPEDITION: game 3D edukasi bertema laut dan terumbu karang.',
+      'IoT gamepad: stik nirkabel buatan sendiri berbasis ESP32.',
     ],
     proofs: [
       { image: 'award-impact-trophy', title: 'Berdua dengan rekan tim memegang piala dan sertifikat Juara 1 Learning Innovation, IMPACT 2026' },

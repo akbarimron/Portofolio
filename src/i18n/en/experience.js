@@ -22,7 +22,7 @@ export const featuredAward = {
 }
 
 export const awards = {
-  impact: { level: '1st Place, International', title: '1st Place Learning Innovation, IMPACT 2026', sub: 'International Maritime, Pedagogy, and Innovation Competition, Universitas Maritim Raja Ali Haji', text: '1st place in the international Learning Innovation category with ARAGONICA EXPEDITION, a 3D educational game on ocean acidification that can be played with a self-built IoT gamepad.' },
+  impact: { level: '1st Place, International', title: '1st Place Learning Innovation, IMPACT 2026', sub: 'International Maritime, Pedagogy, and Innovation Competition, Universitas Maritim Raja Ali Haji', text: '1st place in the international Learning Innovation category with an educational game and an IoT gamepad.' },
   'pkm-vgk': { level: '2nd Place, National', title: '2nd Place PKM-VGK AMLI 2026', sub: 'Constructive Idea Video "RECLAIM"', text: '2nd place in the AMLI PKM Constructive Idea Video scheme, along with funding, for the "RECLAIM" project: an idea to restore post-mining land through technology and education.' },
   riseup: { level: 'Funded', title: 'Rise Up Fest Entrepreneur Funding', sub: '2026 food and beverage product business competition', text: 'Business competition funding for the food and beverage product KulitYea.' },
   lidm: { level: 'Finalist', title: 'LIDM UPI 2025 Finalist', sub: 'Microteaching category', text: 'Reached the final round of LIDM UPI 2025 in the microteaching category.' },
