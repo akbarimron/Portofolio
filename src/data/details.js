@@ -20,6 +20,9 @@ export const experienceDetail = {
       'Membuat after movie Genbi Night 2026.',
     ],
     proofs: [
+      { image: 'genbi-youthfest', title: 'GenBI Jabar Youthfest, Bandung, 20-21 Oktober 2026: foto bersama di panggung' },
+      { image: 'genbi-putih', title: 'Foto bersama anggota GenBI berbusana putih' },
+      { image: 'genbi-hitam', title: 'Foto bersama anggota GenBI berbusana hitam' },
       { image: 'genbi-wbd', title: 'World Book Day 2026, Bank Indonesia' },
       { image: 'genbi-sosial-1', title: 'Kegiatan sosial bersama anak-anak' },
       { image: 'genbi-sosial-2', title: 'Sesi edukasi dan kegiatan sosial di taman' },
@@ -180,6 +183,41 @@ export const awardDetail = {
       { image: 'aragonica-lab', title: 'Lab molekul 3D: karbon dioksida' },
     ],
   },
+  'genbi-beasiswa': {
+    facts: { Jenis: 'Beasiswa', Pemberi: 'Bank Indonesia', Status: 'Aktif' },
+    paragraphs: [
+      'Beasiswa Kebanksentralan Bank Indonesia diberikan melalui seleksi prestasi akademik, kepemimpinan, dan rekam jejak organisasi. Proses seleksinya mencakup berkas, esai ekonomi digital, dan wawancara panel.',
+      'Sebagai penerima, saya mewakili UPI di barisan Generasi Baru Indonesia untuk advokasi literasi kebanksentralan dan program kemasyarakatan.',
+    ],
+    points: [],
+    proofs: [
+      { image: 'genbi-youthfest', title: 'GenBI Jabar Youthfest, Bandung, 20-21 Oktober 2026: foto bersama di panggung' },
+      { image: 'genbi-putih', title: 'Foto bersama anggota GenBI berbusana putih' },
+      { image: 'genbi-hitam', title: 'Foto bersama anggota GenBI berbusana hitam' },
+      { image: 'genbi-wbd', title: 'World Book Day 2026, Bank Indonesia' },
+      { image: 'genbi-sosial-1', title: 'Kegiatan sosial bersama anak-anak' },
+      { image: 'genbi-sosial-2', title: 'Sesi edukasi dan kegiatan sosial di taman' },
+      { image: 'genbi-olahraga', title: 'Foto bersama anggota GenBI di gedung olahraga' },
+      { image: 'genbi-tim', title: 'Foto bersama anggota GenBI' },
+      { image: 'genbi-night-sertifikat', title: 'GenBI Night, penerimaan penghargaan Best Intern Staff 2025/2026' },
+    ],
+    links: [{ label: 'Instagram @genbiupi', href: 'https://www.instagram.com/genbiupi/' }],
+  },
+  lidm: {
+    facts: { Capaian: 'Finalis', Kategori: 'Microteaching', Tahun: '2025', Tingkat: 'Universitas (UPI)' },
+    paragraphs: ['Lolos ke babak final LIDM UPI 2025 pada kategori microteaching.'],
+    points: [],
+    proofs: [
+      { type: 'video', embed: 'https://www.youtube.com/embed/V-bXqz4Wwqs', poster: 'https://i.ytimg.com/vi/V-bXqz4Wwqs/hqdefault.jpg', title: 'Video LIDM UPI 2025' },
+      { image: 'lidm-scratch', title: 'Materi "Belajar Coding Seru dengan Scratch!"' },
+      { image: 'lidm-kelas', title: 'Foto bersama siswa di kelas' },
+      { image: 'lidm-sekolah', title: 'Foto bersama di halaman sekolah' },
+      { image: 'lidm-lorong', title: 'Foto bersama di depan Laboratorium IPA SMPN 6 Lembang' },
+      { image: 'lidm-lab', title: 'Foto bersama di ruang laboratorium' },
+      { image: 'lidm-siswa', title: 'Foto bersama salah satu siswa' },
+      { image: 'lidm-tim', title: 'Foto bersama tim' },
+    ],
+  },
   'pkm-vgk': {
     facts: { Capaian: 'Juara 2 dan pendanaan', Skema: 'PKM Video Gagasan Konstruktif (VGK)', Penyelenggara: 'AMLI', Tingkat: 'Nasional', Tahun: '2026' },
     paragraphs: [
@@ -206,6 +244,7 @@ export const awardDetail = {
     paragraphs: ['Memperoleh pendanaan dalam kompetisi bisnis Rise Up Fest untuk produk makanan dan minuman KulitYea.'],
     points: [],
     proofs: [
+      { image: 'riseup-sertifikat', title: 'Sertifikat Peserta Kompetisi Bisnis Mahasiswa Rise Up 2026, 4 November 2026' },
       { image: 'riseup-serbuk', title: 'Hasil serbuk dari berbagai kulit buah untuk KulitYea' },
       { image: 'riseup-kulit', title: 'Kulit buah yang dikeringkan sebagai bahan baku' },
       { image: 'riseup-tim-teh', title: 'Tim saat menyiapkan dan mencoba produk KulitYea' },

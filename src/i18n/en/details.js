@@ -13,6 +13,9 @@ export const experienceDetail = {
       'Producing the Genbi Night 2026 after movie.',
     ],
     proofs: [
+      { title: 'GenBI Jabar Youthfest, Bandung, 20-21 October 2026: group photo on stage' },
+      { title: 'GenBI members group photo in white outfits' },
+      { title: 'GenBI members group photo in black outfits' },
       { title: 'World Book Day 2026, Bank Indonesia' },
       { title: 'Community service with children' },
       { title: 'Education and community service session in the park' },
@@ -163,6 +166,38 @@ export const awardDetail = {
       { title: '3D molecule lab: carbon dioxide' },
     ],
   },
+  'genbi-beasiswa': {
+    facts: R({ Type: 'Scholarship', Provider: 'Bank Indonesia', Status: 'Active' }),
+    paragraphs: [
+      'The Bank Indonesia Central Banking Scholarship is awarded through selection on academic achievement, leadership, and organisational record. The process covers documents, a digital economy essay, and a panel interview.',
+      'As a recipient, I represent UPI among Generasi Baru Indonesia for central banking literacy advocacy and community programs.',
+    ],
+    proofs: [
+      { title: 'GenBI Jabar Youthfest, Bandung, 20-21 October 2026: group photo on stage' },
+      { title: 'GenBI members group photo in white outfits' },
+      { title: 'GenBI members group photo in black outfits' },
+      { title: 'World Book Day 2026, Bank Indonesia' },
+      { title: 'Community service with children' },
+      { title: 'Education and community service session in the park' },
+      { title: 'GenBI members group photo at the sports hall' },
+      { title: 'GenBI members group photo' },
+      { title: 'GenBI Night, receiving the Best Intern Staff award 2025/2026' },
+    ],
+  },
+  lidm: {
+    facts: R({ Achievement: 'Finalist', Category: 'Microteaching', Year: '2025', Level: 'University (UPI)' }),
+    paragraphs: ['Reached the final round of LIDM UPI 2025 in the microteaching category.'],
+    proofs: [
+      { title: 'LIDM UPI 2025 video' },
+      { title: 'Lesson slide "Fun Coding with Scratch!"' },
+      { title: 'Group photo with students in the classroom' },
+      { title: 'Group photo in the school yard' },
+      { title: 'Group photo in front of the Science Laboratory, SMPN 6 Lembang' },
+      { title: 'Group photo in the laboratory room' },
+      { title: 'Photo with one of the students' },
+      { title: 'Team photo' },
+    ],
+  },
   'pkm-vgk': {
     facts: R({ Achievement: '2nd Place and funding', Scheme: 'PKM Constructive Idea Video (VGK)', Organiser: 'AMLI', Level: 'National', Year: '2026' }),
     paragraphs: [
@@ -187,6 +222,7 @@ export const awardDetail = {
     facts: R({ Achievement: 'Funded', Event: 'Rise Up Fest Entrepreneur', Product: 'KulitYea (food and beverage)', Year: '2026' }),
     paragraphs: ['Received funding in the Rise Up Fest business competition for the food and beverage product KulitYea.'],
     proofs: [
+      { title: 'Participant certificate, Rise Up 2026 Student Business Competition, 4 November 2026' },
       { title: 'Powders made from various fruit peels for KulitYea' },
       { title: 'Dried fruit peels used as raw material' },
       { title: 'The team preparing and tasting the KulitYea product' },

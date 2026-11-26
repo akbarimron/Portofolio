@@ -115,6 +115,7 @@ export const images = {
   'gft-awards': '/images/porto/gft-awards.webp',
   'gft-selfie': '/images/porto/gft-selfie.webp',
   'gft-tim-ruang': '/images/porto/gft-tim-ruang.webp',
+  'riseup-sertifikat': '/images/porto/riseup-sertifikat.webp',
   'riseup-serbuk': '/images/porto/riseup-serbuk.webp',
   'riseup-kulit': '/images/porto/riseup-kulit.webp',
   'riseup-photobooth': '/images/porto/riseup-photobooth.webp',
@@ -128,6 +129,9 @@ export const images = {
   'dimasti-gedung': '/images/porto/dimasti-gedung.webp',
   'dimasti-selfie': '/images/porto/dimasti-selfie.webp',
   // dokumentasi GenBI
+  'genbi-youthfest': '/images/porto/genbi-youthfest.webp',
+  'genbi-putih': '/images/porto/genbi-putih.webp',
+  'genbi-hitam': '/images/porto/genbi-hitam.webp',
   'genbi-wbd': '/images/porto/genbi-wbd.webp',
   'genbi-olahraga': '/images/porto/genbi-olahraga.webp',
   'genbi-sosial-1': '/images/porto/genbi-sosial-1.webp',
