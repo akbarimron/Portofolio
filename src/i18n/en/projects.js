@@ -169,6 +169,29 @@ export const projects = {
       { title: 'Wheelhouse' },
     ],
   },
+  palta67: {
+    title: 'PALTA67 — Anti-Gambling EduSim',
+    role: 'Game Programmer & Systems Designer',
+    period: 'Nov 2026',
+    text: 'A Unity 6 2D educational simulation game built for DKV UPI that exposes the manipulative UX of online slot gambling and predatory loans (pinjol): from free spins and early MAXWIN baits to shifting cashout minimums that stay out of reach.',
+    highlights: [
+      'Five-round scripted scenario state machine (Pathways A/B/C) built in pure C# (SlotGacor.Core) decoupled from Unity UI and covered by NUnit tests.',
+      'Authentic dark-pattern mechanics: Rounds 1-2 bait confidence with early payouts and an easy Good Ending exit, while Rounds 3-5 lock minimum withdrawal to balance + Rp20.000.',
+      'Includes a Spin #13 pity trigger (+Rp50.000) before draining down to a glitch-styled pinjol Bad Ending sequence.',
+      'Features procedural marquee lights, UI particle bursts, Indonesian/English localization, AutoDemo mode, and booth showcase shortcuts (Space, F5, F1).',
+    ],
+    stackGroups: R({
+      Game: ['Unity 6', 'C#', 'UGUI', 'TextMeshPro'],
+      Architecture: ['Pure C# State Machine', 'NUnit EditMode Tests', 'Bilingual Localization'],
+    }),
+    links: [{ label: 'GitHub' }],
+    shots: [
+      { title: 'PALTA67 slot reel & initial free spin phase' },
+      { title: 'E-Wallet Top-Up modal (Rp10.000 - Rp50.000)' },
+      { title: 'Early-round MAXWIN! bait victory banner' },
+      { title: 'Rigged LOSS! phase with shifting Rp50.000 cashout minimum' },
+    ],
+  },
 }
 
 export const research = {

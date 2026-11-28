@@ -34,6 +34,31 @@ export const projects = [
     ],
   },
   {
+    id: 'palta67',
+    title: 'PALTA67 — Anti-Gambling EduSim',
+    role: 'Game Programmer & Systems Designer',
+    period: 'Nov 2026',
+    text: 'Game simulasi edukasi 2D berbasis Unity 6 untuk DKV UPI yang membongkar psikologi manipulatif judi slot online (judol) dan jerat pinjol: dari free spin dan bait MAXWIN hingga batas tarik dana yang diam-diam terus bergeser di atas saldo.',
+    highlights: [
+      'Arsitektur skenario 5 ronde (Pathway A/B/C) dalam C# murni (SlotGacor.Core) terpisah dari UI Unity dan tervalidasi unit test NUnit.',
+      'Mekanik jebakan autentik: Ronde 1-2 memancing rasa menang dan penarikan mudah (Good Ending), lalu Ronde 3-5 mengunci minimum penarikan sebesar saldo + Rp20.000.',
+      'Pity hook Spin #13 (+Rp50.000) diikuti kekalahan beruntun hingga saldo habis dan adegan Bad Ending jerat pinjol dengan efek glitch serta notifikasi.',
+      'Dilengkapi efek visual marquee, partikel UI, lokalisasi dua bahasa (ID/EN), mode AutoDemo, serta pintasan pameran booth (Space, F5, F1).',
+    ],
+    stackGroups: {
+      Game: ['Unity 6', 'C#', 'UGUI', 'TextMeshPro'],
+      Arsitektur: ['Pure C# State Machine', 'NUnit EditMode Tests', 'Bilingual Localization'],
+    },
+    image: 'palta67-gameplay',
+    links: [{ href: 'https://github.com/akbarimron/PALTA67-AntiGambling-EduSim', label: 'GitHub' }],
+    shots: [
+      { image: 'palta67-gameplay', title: 'Mesin slot PALTA67 & fase free spin awal' },
+      { image: 'palta67-topup', title: 'Modal Top-Up E-Wallet (Rp10.000 - Rp50.000)' },
+      { image: 'palta67-maxwin', title: 'Kemenangan pancingan MAXWIN! di ronde awal' },
+      { image: 'palta67-loss', title: 'Fase jebakan LOSS! dengan minimum tarik dana Rp50.000' },
+    ],
+  },
+  {
     id: 'dppm',
     title: 'Website DPPM UPI',
     role: 'Backend Programmer',

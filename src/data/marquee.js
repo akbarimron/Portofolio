@@ -15,6 +15,7 @@ const projectCards = [
   { image: 'multiverse-cover', label: 'Lost in MultiverseRPG' },
   { image: 'grimoire-judul', label: "Grimoire's Aegis" },
   { image: 'aragonica-kapal', label: 'ARAGONICA EXPEDITION' },
+  { image: 'palta67-maxwin', label: 'PALTA67 EduSim' },
   { image: 'litabmas-dashboard', label: 'Litabmas UPI' },
 ]
 

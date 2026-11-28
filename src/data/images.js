@@ -185,6 +185,10 @@ export const images = {
   'water-tim': '/images/porto/water-tim.webp',
   'rapat-litabmas-1': '/images/porto/rapat-litabmas-1.webp',
   'rapat-litabmas-2': '/images/porto/rapat-litabmas-2.webp',
+  'palta67-gameplay': '/images/porto/palta67-gameplay.webp',
+  'palta67-topup': '/images/porto/palta67-topup.webp',
+  'palta67-maxwin': '/images/porto/palta67-maxwin.webp',
+  'palta67-loss': '/images/porto/palta67-loss.webp',
 
   portrait: '/images/akbar.jpg', // foto asli, disimpan di public/images/
   racket:
