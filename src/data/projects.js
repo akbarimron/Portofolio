@@ -9,6 +9,31 @@
 // Proyek penelitian dosen (IoT air, raket) ada di research.js
 export const projects = [
   {
+    id: 'speakprep',
+    title: 'SpeakPrep',
+    role: 'Fullstack & AI Engineer',
+    period: 'Nov 2026',
+    text: 'Studio latihan bicara bahasa Inggris real-time berbasis Gemini Live API: percakapan suara dua arah dengan latensi rendah, 30 suara live dan 18 suara neural, 13 kepribadian ekspresif, aksen daerah, serta evaluasi IELTS Band 1.0-9.0 multimodal.',
+    highlights: [
+      'Streaming audio dua arah langsung di browser lewat Gemini Live API (PCM 16 kHz / 24 kHz) dengan auto-reconnect mulus.',
+      'Tiga mesin suara: 30 suara Gemini Live, 18 suara Edge Neural, serta bridge ke VoiceStudio lokal atau tunnel.',
+      '13 kepribadian ekspresif, pilihan aksen (American, Brooklyn NYC, British, Australian, Irish, Indian), plus mode uncensored dan debat tanpa mengalah.',
+      'Evaluasi audio + transkrip untuk skor IELTS Band 1.0-9.0 lengkap dengan perbaikan kalimat dan peningkatan kosakata.',
+      'Autentikasi Firebase, sinkronisasi Cloud Firestore per akun, dan halaman profil berisi statistik skor, suara yang dikirim, serta riwayat sesi.',
+    ],
+    stackGroups: {
+      Frontend: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4'],
+      'AI & Backend': ['Google Gemini Live API', 'Firebase Auth & Firestore', 'Edge Neural TTS'],
+      Infrastruktur: ['Vercel', 'Git & GitHub'],
+    },
+    image: 'speakprep-home',
+    links: [{ href: 'https://speakprep-six.vercel.app', label: 'Coba aplikasi' }],
+    shots: [
+      { image: 'speakprep-home', title: 'Setup praktik, kepribadian, & pilihan suara' },
+      { image: 'speakprep-profile', title: 'Profil pengguna, statistik Band, & riwayat sesi' },
+    ],
+  },
+  {
     id: 'dppm',
     title: 'Website DPPM UPI',
     role: 'Backend Programmer',

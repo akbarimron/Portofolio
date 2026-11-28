@@ -5,6 +5,27 @@ import { R } from '../merge'
 const web = { Frontend: ['React.js', 'HTML', 'CSS', 'JavaScript'], 'Backend and data': ['REST API', 'PostgreSQL'], Infrastructure: ['Docker', 'Git & GitHub'] }
 
 export const projects = {
+  speakprep: {
+    period: 'Nov 2026',
+    text: 'Real-time AI English speaking studio powered by the Gemini Live API: duplex low-latency voice conversation with 30 live voices, 18 neural voices, 13 expressive personalities, regional accents, and multimodal IELTS Band 1.0-9.0 grading.',
+    highlights: [
+      'Full-duplex WebSocket audio streaming directly in the browser via Gemini Live API (16 kHz / 24 kHz PCM) with seamless auto-reconnect.',
+      'Three voice engines: 30 Gemini Live voices, 18 Edge Neural voices, and a direct browser bridge for local or tunneled VoiceStudio.',
+      '13 expressive personalities, selectable accents (American, Brooklyn NYC, British, Australian, Irish, Indian), plus uncensored banter and no-apology debate toggles.',
+      'Multimodal audio and transcript evaluation scoring IELTS Bands 1.0-9.0 with line-by-line upgrades and vocabulary drills.',
+      'Firebase Authentication, per-user Cloud Firestore sync, and a profile dashboard tracking band averages, voice turns sent, and session history.',
+    ],
+    stackGroups: R({
+      Frontend: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4'],
+      'AI & Backend': ['Google Gemini Live API', 'Firebase Auth & Firestore', 'Edge Neural TTS'],
+      Infrastructure: ['Vercel', 'Git & GitHub'],
+    }),
+    links: [{ label: 'Try the web app' }],
+    shots: [
+      { title: 'Practice setup, personalities, and voice engines' },
+      { title: 'User profile, band stats, and session history' },
+    ],
+  },
   dppm: {
     text: 'Official website of UPI’s Directorate of Research and Community Service (DPPM): an information hub for research programs, a research group directory, announcements, and official documents for the academic community.',
     highlights: [

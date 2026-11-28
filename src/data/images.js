@@ -2,6 +2,8 @@
 // Sisanya (water, racket) masih mockup dari desain awal dan bisa kedaluwarsa.
 export const images = {
   // Gambar asli: tangkapan situs dari Portfolio PDF, halaman itch.io Room404, dan cuplikan karya
+  'speakprep-home': '/images/porto/speakprep-home.png',
+  'speakprep-profile': '/images/porto/speakprep-profile.png',
   'litabmas-dashboard': '/images/porto/litabmas-dashboard.webp',
   'litabmas-config': '/images/porto/litabmas-config.webp',
   'water-1': '/images/porto/water-1.webp',
